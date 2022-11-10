@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== Vanilla Helixien Gas Expanded ==========
+
+		VHGE_HelixienGenerator
+        VHGE_IndustrialHelixienGenerator
+        VHGE_HelixienPump
+        VHGE_GasTank
+        VHGE_HelixienPipe
+        VHGE_SubterraneanHelixienPipe
+        VHGE_GasPipeValve
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Helixien Gas Expanded</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator | VHGE_GasTank | VHGE_HelixienPump -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator" or defName="VHGE_GasTank" or defName="VHGE_HelixienPump"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator" or defName="VHGE_GasTank" or defName="VHGE_HelixienPump"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator" or defName="VHGE_GasTank" or defName="VHGE_HelixienPump"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator" or defName="VHGE_GasTank" or defName="VHGE_HelixienPump"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- VHGE_HelixienPipe | VHGE_SubterraneanHelixienPipe | VHGE_GasPipeValve -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_HelixienPipe" or defName="VHGE_SubterraneanHelixienPipe" or defName="VHGE_GasPipeValve"]/building/relatedBuildCommands</xpath>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="VHGE_HelixienPipe" or defName="VHGE_SubterraneanHelixienPipe" or defName="VHGE_GasPipeValve"]/building</xpath>
+                        <value>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- VHGE_HelixienPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_HelixienPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VHGE_SubterraneanHelixienPipe</li>
+                        <li>VHGE_GasPipeValve</li>
+                    </value>
+                </li>
+
+                <!-- VHGE_SubterraneanHelixienPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_SubterraneanHelixienPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VHGE_HelixienPipe</li>
+                        <li>VHGE_GasPipeValve</li>
+                    </value>
+                </li>
+
+                <!-- VHGE_GasPipeValve -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_GasPipeValve"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VHGE_HelixienPipe</li>
+                        <li>VHGE_SubterraneanHelixienPipe</li>
+                    </value>
+                </li>
+
+                <!-- VHGE_GasTank -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_GasTank"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VHGE_HelixienPipe</li>
+                        <li>VHGE_SubterraneanHelixienPipe</li>
+                        <li>VHGE_GasPipeValve</li>
+                    </value>
+                </li>
+
+                <!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VHGE_HelixienPipe</li>
+                        <li>VHGE_SubterraneanHelixienPipe</li>
+                        <li>VHGE_GasPipeValve</li>
+                    </value>
+                </li>
+
+                <!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>PowerConduit</li>
+                        <li>WaterproofConduit</li>
+                    </value>
+                </li>
+
+                <!-- ========== Glitter Tech ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Glitter Tech</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>HeavyPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Backup Power ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Backup Power</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BackupPower_Attachment</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Cybernetic Storm ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Cybernetic Storm</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+									<li>CS_PowerConduit</li>
+									<li>WaterproofUltrasteelConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+                <!-- ========== GlitterNet ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>GlitterNet</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VHGE_HelixienGenerator | VHGE_IndustrialHelixienGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VHGE_HelixienGenerator" or defName="VHGE_IndustrialHelixienGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>GNBasicPowerIntegrator</li>
+                                    <li>GNImprovedPowerIntegrator</li>
+                                    <li>GNAdvancedPowerIntegrator</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

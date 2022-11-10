@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- ========== M-13's ChemFuel Generators ==========
+
+		Tweaked_ChemFuelGen | #power
+        Tweaked_ChemFuelGen_NG
+        Upgraded_ChemFuelGen
+        Upgraded_ChemFuelGen_NG
+        Advanced_ChemFuelGen
+        Advanced_ChemFuelGen_NG
+        Ultimate_ChemFuelGen
+        Ultimate_ChemFuelGen_NG
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>M-13's ChemFuel Generators</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+				<li Class="PatchOperationConditional">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building</xpath>
+					<match Class="PatchOperationConditional">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<success>Always</success>
+							<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building</xpath>
+							<value>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</value>
+						</nomatch>
+					</match>
+					<nomatch Class="PatchOperationAdd">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]</xpath>
+						<value>
+							<building>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</building>
+						</value>
+					</nomatch>
+				</li>
+
+				<!-- ========== RimWorld ========== -->
+				<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>PowerConduit</li>
+						<li>WaterproofConduit</li>
+					</value>
+				</li>
+
+				<!-- ========== Cybernetic Storm ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Cybernetic Storm</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>CS_PowerConduit</li>
+									<li>WaterproofUltrasteelConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Glitter Tech ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Glitter Tech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Backup Power ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Backup Power</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>BackupPower_Attachment</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== GlitterNet ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>GlitterNet</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicPowerIntegrator</li>
+									<li>GNImprovedPowerIntegrator</li>
+									<li>GNAdvancedPowerIntegrator</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Vanilla Chemfuel Expanded ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Chemfuel Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- Tweaked_ChemFuelGen | Tweaked_ChemFuelGen_NG | Upgraded_ChemFuelGen | Upgraded_ChemFuelGen_NG | Advanced_ChemFuelGen | Advanced_ChemFuelGen_NG | Ultimate_ChemFuelGen | Ultimate_ChemFuelGen_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_ChemFuelGen" or defName="Tweaked_ChemFuelGen_NG" or defName="Upgraded_ChemFuelGen" or defName="Upgraded_ChemFuelGen_NG" or defName="Advanced_ChemFuelGen" or defName="Advanced_ChemFuelGen_NG" or defName="Ultimate_ChemFuelGen" or defName="Ultimate_ChemFuelGen_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>VCHE_ChemfuelPipe</li>
+									<li>VCHE_UndergroundChemfuelPipe</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

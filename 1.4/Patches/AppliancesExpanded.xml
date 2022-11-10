@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		========== Advanced Electric Stove ==========
+
+		CE_ChemfuelStove
+        CA_ChemfuelStoveLarge
+        CE_ChemfuelDeepFrier
+        CE_ChemfuelGrill
+        CE_AirFryer
+        CA_ChemfuelSmithy
+        CE_FueledSmithyLarge
+        CA_ChemfuelSmelter
+
+        CA_WoodFiredTurbine
+        CA_ChemfuelTurbine
+        CA_GasTurbine
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Advanced Electric Stove</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+                <!-- CE_ChemfuelStove | CA_ChemfuelStoveLarge | CE_ChemfuelDeepFrier | CE_ChemfuelGrill | CE_AirFryer | CA_ChemfuelSmelter | CA_ChemfuelSmithy | CE_FueledSmithyLarge -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="CE_ChemfuelStove" or defName="CA_ChemfuelStoveLarge" or defName="CE_ChemfuelDeepFrier" or defName="CE_ChemfuelGrill" or defName="CE_AirFryer" or defName="CA_ChemfuelSmelter" or defName="CA_ChemfuelSmithy" or defName="CE_FueledSmithyLarge"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="CE_ChemfuelStove" or defName="CA_ChemfuelStoveLarge" or defName="CE_ChemfuelDeepFrier" or defName="CE_ChemfuelGrill" or defName="CE_AirFryer" or defName="CA_ChemfuelSmelter" or defName="CA_ChemfuelSmithy" or defName="CE_FueledSmithyLarge"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="CE_ChemfuelStove" or defName="CA_ChemfuelStoveLarge" or defName="CE_ChemfuelDeepFrier" or defName="CE_ChemfuelGrill" or defName="CE_AirFryer" or defName="CA_ChemfuelSmelter" or defName="CA_ChemfuelSmithy" or defName="CE_FueledSmithyLarge"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="CE_ChemfuelStove" or defName="CA_ChemfuelStoveLarge" or defName="CE_ChemfuelDeepFrier" or defName="CE_ChemfuelGrill" or defName="CE_AirFryer" or defName="CA_ChemfuelSmelter" or defName="CA_ChemfuelSmithy" or defName="CE_FueledSmithyLarge"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- CA_WoodFiredTurbine | CA_ChemfuelTurbine | CA_GasTurbine -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- ========== RimWorld ========== -->
+                <!-- CA_WoodFiredTurbine | CA_ChemfuelTurbine | CA_GasTurbine -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>PowerConduit</li>
+                        <li>WaterproofConduit</li>
+					</value>
+				</li>
+
+                <!-- ========== Cybernetic Storm ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Cybernetic Storm</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- CA_WoodFiredTurbine | CA_ChemfuelTurbine | CA_GasTurbine -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>CS_PowerConduit</li>
+									<li>WaterproofUltrasteelConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+                <!-- ========== Glitter Tech ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Glitter Tech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- CA_WoodFiredTurbine | CA_ChemfuelTurbine | CA_GasTurbine -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Backup Power ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Backup Power</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- CA_WoodFiredTurbine | CA_ChemfuelTurbine | CA_GasTurbine -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>BackupPower_Attachment</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== GlitterNet ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>GlitterNet</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- CE_ChemfuelStove | CA_ChemfuelStoveLarge | CE_ChemfuelDeepFrier | CE_ChemfuelGrill | CE_AirFryer | CA_ChemfuelSmelter | CA_ChemfuelSmithy | CE_FueledSmithyLarge -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="CE_ChemfuelStove" or defName="CA_ChemfuelStoveLarge" or defName="CE_ChemfuelDeepFrier" or defName="CE_ChemfuelGrill" or defName="CE_AirFryer" or defName="CA_ChemfuelSmelter" or defName="CA_ChemfuelSmithy" or defName="CE_FueledSmithyLarge"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicWorkspeedIntegrator</li>
+                                    <li>GNImprovedWorkspeedIntegrator</li>
+                                    <li>GNAdvancedWorkspeedIntegrator</li>
+								</value>
+							</li>
+
+                            <!-- CA_WoodFiredTurbine | CA_ChemfuelTurbine | CA_GasTurbine -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="CA_WoodFiredTurbine" or defName="CA_ChemfuelTurbine" or defName="CA_GasTurbine"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicPowerIntegrator</li>
+                                    <li>GNImprovedPowerIntegrator</li>
+                                    <li>GNAdvancedPowerIntegrator</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Vanilla Chemfuel Expanded ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Chemfuel Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- CA_ChemfuelTurbine -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="CA_ChemfuelTurbine"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>VCHE_ChemfuelPipe</li>
+									<li>VCHE_UndergroundChemfuelPipe</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		========== Advanced Brewery ==========
+
+		ElectricBrewery
+        HiTechBrewery
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Advanced Brewery</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+                <!-- ElectricBrewery | HiTechBrewery -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+				<!-- ========== GlitterNet ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>GlitterNet</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- ElectricBrewery | HiTechBrewery -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicWorkspeedIntegrator</li>
+                                    <li>GNImprovedWorkspeedIntegrator</li>
+                                    <li>GNAdvancedWorkspeedIntegrator</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

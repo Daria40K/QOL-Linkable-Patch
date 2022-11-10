@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>QOL Linkable Patch</name>
+	<author>Daria40K</author>
+	<packageId>Daria40K.QOLLinkablePatch</packageId>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<loadAfter>
+	</loadAfter>
+	<description>This patch applys multiable patches to allow furniture from other mods to link with each other.</description>
+</ModMetaData>

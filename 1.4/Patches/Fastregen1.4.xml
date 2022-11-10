@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		========== Fast regen 1.4 ==========
+
+		HerbBede
+        MedBed
+        IIMed
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Fast regen 1.4</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+                <!-- HerbBede | MedBed | IIMed -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+				<!-- ========== GlitterNet ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>GlitterNet</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- HerbBede | MedBed | IIMed -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicMedicalIntegrator</li>
+                                    <li>GNImprovedMedicalIntegrator</li>
+                                    <li>GNAdvancedMedicalIntegrator</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

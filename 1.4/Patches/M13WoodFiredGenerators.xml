@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		========== M-13's Wood-Fired Generators ==========
+
+		Tweaked_Generator | #power
+        Tweaked_Generator_NG
+        Upgraded_Generator
+        Upgraded_Generator_NG
+        Advanced_Generator
+        Advanced_Generator_NG
+        Ultimate_Generator
+        Ultimate_Generator_NG
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>M-13's Wood-Fired Generators</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+                <!-- Tweaked_Generator | Tweaked_Generator_NG | Upgraded_Generator | Upgraded_Generator_NG | Advanced_Generator | Advanced_Generator_NG | Ultimate_Generator | Ultimate_Generator_NG -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building</xpath>
+                        <value>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- ========== RimWorld ========== -->
+                <!-- Tweaked_Generator | Tweaked_Generator_NG | Upgraded_Generator | Upgraded_Generator_NG | Advanced_Generator | Advanced_Generator_NG | Ultimate_Generator | Ultimate_Generator_NG -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>PowerConduit</li>
+                        <li>WaterproofConduit</li>
+					</value>
+				</li>
+
+				<!-- ========== Cybernetic Storm ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Cybernetic Storm</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- Tweaked_Generator | Tweaked_Generator_NG | Upgraded_Generator | Upgraded_Generator_NG | Advanced_Generator | Advanced_Generator_NG | Ultimate_Generator | Ultimate_Generator_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>CS_PowerConduit</li>
+									<li>WaterproofUltrasteelConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+                <!-- ========== Glitter Tech ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Glitter Tech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Generator | Tweaked_Generator_NG | Upgraded_Generator | Upgraded_Generator_NG | Advanced_Generator | Advanced_Generator_NG | Ultimate_Generator | Ultimate_Generator_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Backup Power ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Backup Power</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Generator | Tweaked_Generator_NG | Upgraded_Generator | Upgraded_Generator_NG | Advanced_Generator | Advanced_Generator_NG | Ultimate_Generator | Ultimate_Generator_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>BackupPower_Attachment</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== GlitterNet ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>GlitterNet</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Generator | Tweaked_Generator_NG | Upgraded_Generator | Upgraded_Generator_NG | Advanced_Generator | Advanced_Generator_NG | Ultimate_Generator | Ultimate_Generator_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Generator" or defName="Tweaked_Generator_NG" or defName="Upgraded_Generator" or defName="Upgraded_Generator_NG" or defName="Advanced_Generator" or defName="Advanced_Generator_NG" or defName="Ultimate_Generator" or defName="Ultimate_Generator_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicPowerIntegrator</li>
+                                    <li>GNImprovedPowerIntegrator</li>
+                                    <li>GNAdvancedPowerIntegrator</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

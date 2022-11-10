@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ========== Apini Playable Race, Continued! ==========
+
+    ApiniHoneycombBed_S
+    ApiniHoneycombBed_L
+    ApiniNectarStill
+    ApiniProstheticsTable
+    ApitechTable
+    ApitechSynthesizer
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Apini Playable Race, Continued!</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+                <!-- ApiniHoneycombBed_S | ApiniHoneycombBed_L -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="ApiniHoneycombBed_S" or defName="ApiniHoneycombBed_L"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="ApiniHoneycombBed_S" or defName="ApiniHoneycombBed_L"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="ApiniHoneycombBed_S" or defName="ApiniHoneycombBed_L"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="ApiniHoneycombBed_S" or defName="ApiniHoneycombBed_L"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+				<!-- ApiniNectarStill | ApiniProstheticsTable | ApitechTable | ApitechSynthesizer -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="ApiniNectarStill" or defName="ApiniProstheticsTable" or defName="ApitechTable" or defName="ApitechSynthesizer"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="ApiniNectarStill" or defName="ApiniProstheticsTable" or defName="ApitechTable" or defName="ApitechSynthesizer"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="ApiniNectarStill" or defName="ApiniProstheticsTable" or defName="ApitechTable" or defName="ApitechSynthesizer"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="ApiniNectarStill" or defName="ApiniProstheticsTable" or defName="ApitechTable" or defName="ApitechSynthesizer"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+				<!-- ========== GlitterNet ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>GlitterNet</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- ApiniHoneycombBed_S | ApiniHoneycombBed_L -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="ApiniHoneycombBed_S" or defName="ApiniHoneycombBed_L"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>GNBasicBedIntegrator</li>
+                                    <li>GNImprovedBedIntegrator</li>
+                                    <li>GNAdvancedBedIntegrator</li>
+                                </value>
+                            </li>
+
+							<!-- ApiniNectarStill | ApiniProstheticsTable | ApitechTable | ApitechSynthesizer -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="ApiniNectarStill" or defName="ApiniProstheticsTable" or defName="ApitechTable" or defName="ApitechSynthesizer"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicWorkspeedIntegrator</li>
+                                    <li>GNImprovedWorkspeedIntegrator</li>
+                                    <li>GNAdvancedWorkspeedIntegrator</li>
+								</value>
+							</li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

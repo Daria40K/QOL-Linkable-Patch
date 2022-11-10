@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== GlitterNet ==========
+
+		GNBasicWorkspeedIntegrator
+        GNImprovedWorkspeedIntegrator
+        GNAdvancedWorkspeedIntegrator
+        GNBasicResearchIntegrator
+        GNImprovedResearchIntegrator
+        GNAdvancedResearchIntegrator
+        GNBasicPowerIntegrator
+        GNImprovedPowerIntegrator
+        GNAdvancedPowerIntegrator
+        GNBasicBedIntegrator
+        GNImprovedBedIntegrator
+        GNAdvancedBedIntegrator
+        GNBasicMedicalIntegrator
+        GNImprovedMedicalIntegrator
+        GNAdvancedMedicalIntegrator
+        GNGlitterNetHub
+        GNBasicGlitterNetProcessor
+        GNImprovedGlitterNetProcessor
+        GNAdvancedGlitterNetProcessor
+        GNSpecializedEfficiencyProcessor
+        GNSpecializedOverdriveProcessor
+        GNSpecializedConcurrencyProcessor
+        GNSpecializedOverheadProcessor
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>GlitterNet</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- GNBasicWorkspeedIntegrator | GNImprovedWorkspeedIntegrator | GNAdvancedWorkspeedIntegrator | GNBasicResearchIntegrator | GNImprovedResearchIntegrator | GNAdvancedResearchIntegrator | GNBasicPowerIntegrator | GNImprovedPowerIntegrator | GNAdvancedPowerIntegrator | GNBasicBedIntegrator | GNImprovedBedIntegrator | GNAdvancedBedIntegrator | GNBasicMedicalIntegrator | GNImprovedMedicalIntegrator | GNAdvancedMedicalIntegrator | GNGlitterNetHub | GNBasicGlitterNetProcessor | GNImprovedGlitterNetProcessor | GNAdvancedGlitterNetProcessor | GNSpecializedEfficiencyProcessor | GNSpecializedOverdriveProcessor | GNSpecializedConcurrencyProcessor | GNSpecializedOverheadProcessor -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="GNBasicWorkspeedIntegrator" or defName="GNImprovedWorkspeedIntegrator" or defName="GNAdvancedWorkspeedIntegrator" or defName="GNBasicResearchIntegrator" or defName="GNImprovedResearchIntegrator" or defName="GNAdvancedResearchIntegrator" or defName="GNBasicPowerIntegrator" or defName="GNImprovedPowerIntegrator" or defName="GNAdvancedPowerIntegrator" or defName="GNBasicBedIntegrator" or defName="GNImprovedBedIntegrator" or defName="GNAdvancedBedIntegrator" or defName="GNBasicMedicalIntegrator" or defName="GNImprovedMedicalIntegrator" or defName="GNAdvancedMedicalIntegrator" or defName="GNGlitterNetHub" or defName="GNBasicGlitterNetProcessor" or defName="GNImprovedGlitterNetProcessor" or defName="GNAdvancedGlitterNetProcessor" or defName="GNSpecializedEfficiencyProcessor" or defName="GNSpecializedOverdriveProcessor" or defName="GNSpecializedConcurrencyProcessor" or defName="GNSpecializedOverheadProcessor"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="GNBasicWorkspeedIntegrator" or defName="GNImprovedWorkspeedIntegrator" or defName="GNAdvancedWorkspeedIntegrator" or defName="GNBasicResearchIntegrator" or defName="GNImprovedResearchIntegrator" or defName="GNAdvancedResearchIntegrator" or defName="GNBasicPowerIntegrator" or defName="GNImprovedPowerIntegrator" or defName="GNAdvancedPowerIntegrator" or defName="GNBasicBedIntegrator" or defName="GNImprovedBedIntegrator" or defName="GNAdvancedBedIntegrator" or defName="GNBasicMedicalIntegrator" or defName="GNImprovedMedicalIntegrator" or defName="GNAdvancedMedicalIntegrator" or defName="GNGlitterNetHub" or defName="GNBasicGlitterNetProcessor" or defName="GNImprovedGlitterNetProcessor" or defName="GNAdvancedGlitterNetProcessor" or defName="GNSpecializedEfficiencyProcessor" or defName="GNSpecializedOverdriveProcessor" or defName="GNSpecializedConcurrencyProcessor" or defName="GNSpecializedOverheadProcessor"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="GNBasicWorkspeedIntegrator" or defName="GNImprovedWorkspeedIntegrator" or defName="GNAdvancedWorkspeedIntegrator" or defName="GNBasicResearchIntegrator" or defName="GNImprovedResearchIntegrator" or defName="GNAdvancedResearchIntegrator" or defName="GNBasicPowerIntegrator" or defName="GNImprovedPowerIntegrator" or defName="GNAdvancedPowerIntegrator" or defName="GNBasicBedIntegrator" or defName="GNImprovedBedIntegrator" or defName="GNAdvancedBedIntegrator" or defName="GNBasicMedicalIntegrator" or defName="GNImprovedMedicalIntegrator" or defName="GNAdvancedMedicalIntegrator" or defName="GNGlitterNetHub" or defName="GNBasicGlitterNetProcessor" or defName="GNImprovedGlitterNetProcessor" or defName="GNAdvancedGlitterNetProcessor" or defName="GNSpecializedEfficiencyProcessor" or defName="GNSpecializedOverdriveProcessor" or defName="GNSpecializedConcurrencyProcessor" or defName="GNSpecializedOverheadProcessor"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="GNBasicWorkspeedIntegrator" or defName="GNImprovedWorkspeedIntegrator" or defName="GNAdvancedWorkspeedIntegrator" or defName="GNBasicResearchIntegrator" or defName="GNImprovedResearchIntegrator" or defName="GNAdvancedResearchIntegrator" or defName="GNBasicPowerIntegrator" or defName="GNImprovedPowerIntegrator" or defName="GNAdvancedPowerIntegrator" or defName="GNBasicBedIntegrator" or defName="GNImprovedBedIntegrator" or defName="GNAdvancedBedIntegrator" or defName="GNBasicMedicalIntegrator" or defName="GNImprovedMedicalIntegrator" or defName="GNAdvancedMedicalIntegrator" or defName="GNGlitterNetHub" or defName="GNBasicGlitterNetProcessor" or defName="GNImprovedGlitterNetProcessor" or defName="GNAdvancedGlitterNetProcessor" or defName="GNSpecializedEfficiencyProcessor" or defName="GNSpecializedOverdriveProcessor" or defName="GNSpecializedConcurrencyProcessor" or defName="GNSpecializedOverheadProcessor"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- GNGlitterNetHub | GNBasicGlitterNetProcessor | GNImprovedGlitterNetProcessor | GNAdvancedGlitterNetProcessor | GNSpecializedEfficiencyProcessor | GNSpecializedOverdriveProcessor | GNSpecializedConcurrencyProcessor | GNSpecializedOverheadProcessor -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="GNGlitterNetHub"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>GNBasicGlitterNetProcessor</li>
+                        <li>GNImprovedGlitterNetProcessor</li>
+                        <li>GNAdvancedGlitterNetProcessor</li>
+                        <li>GNSpecializedEfficiencyProcessor</li>
+                        <li>GNSpecializedOverdriveProcessor</li>
+                        <li>GNSpecializedConcurrencyProcessor</li>
+                        <li>GNSpecializedOverheadProcessor</li>
+                    </value>
+                </li>
+
+                <!-- GNBasicWorkspeedIntegrator | GNImprovedWorkspeedIntegrator | GNAdvancedWorkspeedIntegrator | GNBasicResearchIntegrator | GNImprovedResearchIntegrator | GNAdvancedResearchIntegrator | GNBasicPowerIntegrator | GNImprovedPowerIntegrator | GNAdvancedPowerIntegrator | GNBasicBedIntegrator | GNImprovedBedIntegrator | GNAdvancedBedIntegrator | GNBasicMedicalIntegrator | GNImprovedMedicalIntegrator | GNAdvancedMedicalIntegrator | GNGlitterNetHub | GNBasicGlitterNetProcessor | GNImprovedGlitterNetProcessor | GNAdvancedGlitterNetProcessor | GNSpecializedEfficiencyProcessor | GNSpecializedOverdriveProcessor | GNSpecializedConcurrencyProcessor | GNSpecializedOverheadProcessor -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="GNBasicWorkspeedIntegrator" or defName="GNImprovedWorkspeedIntegrator" or defName="GNAdvancedWorkspeedIntegrator" or defName="GNBasicResearchIntegrator" or defName="GNImprovedResearchIntegrator" or defName="GNAdvancedResearchIntegrator" or defName="GNBasicPowerIntegrator" or defName="GNImprovedPowerIntegrator" or defName="GNAdvancedPowerIntegrator" or defName="GNBasicBedIntegrator" or defName="GNImprovedBedIntegrator" or defName="GNAdvancedBedIntegrator" or defName="GNBasicMedicalIntegrator" or defName="GNImprovedMedicalIntegrator" or defName="GNAdvancedMedicalIntegrator" or defName="GNGlitterNetHub" or defName="GNBasicGlitterNetProcessor" or defName="GNImprovedGlitterNetProcessor" or defName="GNAdvancedGlitterNetProcessor" or defName="GNSpecializedEfficiencyProcessor" or defName="GNSpecializedOverdriveProcessor" or defName="GNSpecializedConcurrencyProcessor" or defName="GNSpecializedOverheadProcessor"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>GNGlitterNetCable</li>
+                        <li>GNGlitterNetCableHidden</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

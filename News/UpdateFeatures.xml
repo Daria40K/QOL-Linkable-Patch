@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>QOL Linkable Patch</modNameReadable>
+		<modIdentifier>Daria40K.QOLLinkablePatch</modIdentifier>
+		<linkUrl></linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	
+    <!-- v1.0 -->
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>QOLLinkablePatch_1_0</defName>
+		<assemblyVersion>1.0</assemblyVersion>
+		<content></content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
