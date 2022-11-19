@@ -102,26 +102,6 @@
 					</match>
 				</li>
 
-				<!-- ========== Backup Power ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Backup Power</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-                            <!-- Tweaked_Turbine | Tweaked_Turbine_NG | Upgraded_Turbine | Upgraded_Turbine_NG | Advanced_Turbine | Advanced_Turbine_NG | Ultimate_Turbine | Ultimate_Turbine_NG -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Tweaked_Turbine" or defName="Tweaked_Turbine_NG" or defName="Upgraded_Turbine" or defName="Upgraded_Turbine_NG" or defName="Advanced_Turbine" or defName="Advanced_Turbine_NG" or defName="Ultimate_Turbine" or defName="Ultimate_Turbine_NG"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>BackupPower_Attachment</li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
-
 				<!-- ========== GlitterNet ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>

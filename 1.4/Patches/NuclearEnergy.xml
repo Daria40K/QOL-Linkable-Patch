@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- ========== Nuclear Energy ==========
+
+		NuclearReactor | #generator
+        SmallNuclearReactor | #generator
+        GiantNuclearReactor | #generator
+
+        ConDoor
+        ContAutodoor
+        ContainWall
+
+        StrConDoor
+        StrContAutodoor
+        StrContainWall
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Nuclear Energy</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+				<li Class="PatchOperationConditional">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building</xpath>
+					<match Class="PatchOperationConditional">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<success>Always</success>
+							<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building</xpath>
+							<value>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</value>
+						</nomatch>
+					</match>
+					<nomatch Class="PatchOperationAdd">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]</xpath>
+						<value>
+							<building>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</building>
+						</value>
+					</nomatch>
+				</li>
+
+                <!-- ContainWall | StrContainWall -->
+				<li Class="PatchOperationConditional">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="ContainWall" or defName="StrContainWall"]/building</xpath>
+					<match Class="PatchOperationConditional">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="ContainWall" or defName="StrContainWall"]/building/relatedBuildCommands</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<success>Always</success>
+							<xpath>Defs/ThingDef[defName="ContainWall" or defName="StrContainWall"]/building</xpath>
+							<value>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</value>
+						</nomatch>
+					</match>
+					<nomatch Class="PatchOperationAdd">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="ContainWall" or defName="StrContainWall"]</xpath>
+						<value>
+							<building>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</building>
+						</value>
+					</nomatch>
+				</li>
+
+                <!-- ContainWall -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="ContainWall"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>ConDoor</li>
+						<li>ContAutodoor</li>
+					</value>
+				</li>
+
+                <!-- StrContainWall -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="StrContainWall"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>StrConDoor</li>
+						<li>StrContAutodoor</li>
+					</value>
+				</li>
+
+				<!-- ========== RimWorld ========== -->
+				<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>PowerConduit</li>
+						<li>WaterproofConduit</li>
+					</value>
+				</li>
+
+				<!-- ========== Cybernetic Storm ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Cybernetic Storm</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>CS_PowerConduit</li>
+									<li>WaterproofUltrasteelConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Glitter Tech ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Glitter Tech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Backup Power ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Backup Power</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>BackupPower_Attachment</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== GlitterNet ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>GlitterNet</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>GNBasicPowerIntegrator</li>
+									<li>GNImprovedPowerIntegrator</li>
+									<li>GNAdvancedPowerIntegrator</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Vanilla Chemfuel Expanded ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Chemfuel Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- NuclearReactor | SmallNuclearReactor | GiantNuclearReactor -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="NuclearReactor" or defName="SmallNuclearReactor" or defName="GiantNuclearReactor"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>VCHE_ChemfuelPipe</li>
+									<li>VCHE_UndergroundChemfuelPipe</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -101,26 +101,6 @@
 					</match>
 				</li>
 
-				<!-- ========== Backup Power ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Backup Power</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-                            <!-- Tweaked_Geothermal | Tweaked_Geothermal_NG | Upgraded_Geothermal | Upgraded_Geothermal_NG | Advanced_Geothermal | Advanced_Geothermal_NG | Ultimate_Geothermal | Ultimate_Geothermal_NG -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Tweaked_Geothermal" or defName="Tweaked_Geothermal_NG" or defName="Upgraded_Geothermal" or defName="Upgraded_Geothermal_NG" or defName="Advanced_Geothermal" or defName="Advanced_Geothermal_NG" or defName="Ultimate_Geothermal" or defName="Ultimate_Geothermal_NG"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>BackupPower_Attachment</li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
-
 				<!-- ========== GlitterNet ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>

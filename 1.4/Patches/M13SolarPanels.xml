@@ -102,26 +102,6 @@
 					</match>
 				</li>
 
-				<!-- ========== Backup Power ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Backup Power</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-                            <!-- TweakedSolar | Tweaked_Solar_NG | UpgradedSolar | Upgraded_Solar_NG | AdvancedSolar | Advanced_Solar_NG | UltimateSolar | Ultimate_Solar_NG -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="TweakedSolar" or defName="Tweaked_Solar_NG" or defName="UpgradedSolar" or defName="Upgraded_Solar_NG" or defName="AdvancedSolar" or defName="Advanced_Solar_NG" or defName="UltimateSolar" or defName="Ultimate_Solar_NG"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>BackupPower_Attachment</li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
-
 				<!-- ========== GlitterNet ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>
