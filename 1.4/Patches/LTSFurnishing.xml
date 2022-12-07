@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<!--
-		========== Advanced Brewery ==========
+		========== [LTS]Furnishing ==========
 
-		ElectricBrewery
-        HiTechBrewery
+		LTS_BedBase | #bed
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Advanced Brewery</li>
+			<li>[LTS]Furnishing</li>
 		</mods>
 
 		<match Class="PatchOperationSequence">
 			<success>Always</success>
 			<operations>
-                <!-- ElectricBrewery | HiTechBrewery -->
+                <!-- LTS_BedBase -->
                 <li Class="PatchOperationConditional">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building</xpath>
+                    <xpath>Defs/ThingDef[@Name="LTS_BedBase"]/building</xpath>
                     <match Class="PatchOperationConditional">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building/relatedBuildCommands</xpath>
+                        <xpath>Defs/ThingDef[@Name="LTS_BedBase"]/building/relatedBuildCommands</xpath>
                         <nomatch Class="PatchOperationAdd">
                             <success>Always</success>
-                            <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building</xpath>
+                            <xpath>Defs/ThingDef[@Name="LTS_BedBase"]/building</xpath>
                             <value>
                                 <relatedBuildCommands>
 
@@ -33,7 +32,7 @@
                     </match>
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]</xpath>
+                        <xpath>Defs/ThingDef[@Name="LTS_BedBase"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -52,14 +51,14 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- ElectricBrewery | HiTechBrewery -->
+                            <!-- LTS_BedBase -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="ElectricBrewery" or defName="HiTechBrewery"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[@Name="LTS_BedBase"]/building/relatedBuildCommands</xpath>
 								<value>
-									<li>GNBasicWorkspeedIntegrator</li>
-                                    <li>GNImprovedWorkspeedIntegrator</li>
-                                    <li>GNAdvancedWorkspeedIntegrator</li>
+									<li>GNBasicBedIntegrator</li>
+                                    <li>GNImprovedBedIntegrator</li>
+                                    <li>GNAdvancedBedIntegrator</li>
 								</value>
 							</li>
 						</operations>

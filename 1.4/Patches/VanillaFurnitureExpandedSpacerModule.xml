@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<!--
-		========== Advanced Electric Stove ==========
+		========== Vanilla Furniture Expanded - Spacer Module ==========
 
-		TableAdvancedElectricStove
+		Bed_AdvBed | #bed
+	    Bed_AdvDoubleBed | #bed
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Advanced Electric Stove</li>
+			<li>Vanilla Furniture Expanded - Spacer Module</li>
 		</mods>
 
 		<match Class="PatchOperationSequence">
 			<success>Always</success>
 			<operations>
-                <!-- TableAdvancedElectricStove -->
+                <!-- Bed_AdvBed | Bed_AdvDoubleBed -->
                 <li Class="PatchOperationConditional">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="TableAdvancedElectricStove"]/building</xpath>
+                    <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/building</xpath>
                     <match Class="PatchOperationConditional">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="TableAdvancedElectricStove"]/building/relatedBuildCommands</xpath>
+                        <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/building/relatedBuildCommands</xpath>
                         <nomatch Class="PatchOperationAdd">
                             <success>Always</success>
-                            <xpath>Defs/ThingDef[defName="TableAdvancedElectricStove"]/building</xpath>
+                            <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/building</xpath>
                             <value>
                                 <relatedBuildCommands>
 
@@ -32,7 +33,7 @@
                     </match>
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="TableAdvancedElectricStove"]</xpath>
+                        <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -51,14 +52,14 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- TableAdvancedElectricStove -->
+                            <!-- Bed_AdvBed | Bed_AdvDoubleBed -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="TableAdvancedElectricStove"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/building/relatedBuildCommands</xpath>
 								<value>
-									<li>GNBasicWorkspeedIntegrator</li>
-                                    <li>GNImprovedWorkspeedIntegrator</li>
-                                    <li>GNAdvancedWorkspeedIntegrator</li>
+									<li>GNBasicBedIntegrator</li>
+                                    <li>GNImprovedBedIntegrator</li>
+                                    <li>GNAdvancedBedIntegrator</li>
 								</value>
 							</li>
 						</operations>

@@ -2,17 +2,22 @@
 <Patch>
     <!-- ========== RimWorld ==========
 
-        == Generators
-		WoodFiredGenerator | #power
-        ChemfuelPoweredGenerator | #power
-        WindTurbine | #power
-        SolarGenerator | #power
-        GeothermalGenerator | #power
-        WatermillGenerator | #power
-
         == Cables
-        PowerConduit | #cable
-        WaterproofConduit | #cable
+        +VCHE_ChemfuelPipe | #cable
+        +VCHE_UndergroundChemfuelPipe | #cable
+        +VCHE_ChemfuelValve
+        -PS_ChemfuelTank
+        +VCHE_ChemfuelTap
+        +VCHE_ChemfuelDrain
+
+        +VCHE_DeepchemPipe
+        +VCHE_UndergroundDeepchemPipe
+        +VCHE_DeepchemValve
+        -PS_DeepchemTank
+        -PS_DeepchemRefinery
+        +VCHE_DeepchemPumpjack
+        +VCHE_DeepchemTap
+        +VCHE_DeepchemDrain
 	-->
     <Operation Class="PatchOperationFindMod">
         <mods>
@@ -22,26 +27,26 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator -->
+                <!-- VCHE_ChemfuelPipe | VCHE_UndergroundChemfuelPipe | VCHE_ChemfuelValve | VCHE_ChemfuelTap | VCHE_ChemfuelDrain | VCHE_DeepchemPipe | VCHE_UndergroundDeepchemPipe | VCHE_DeepchemValve | VCHE_DeepchemPumpjack | VCHE_DeepchemTap | VCHE_DeepchemDrain -->
                 <li Class="PatchOperationConditional">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator"]/building</xpath>
+                    <xpath>Defs/ThingDef[defName="VCHE_ChemfuelPipe" or defName="VCHE_UndergroundChemfuelPipe" or defName="VCHE_ChemfuelValve" or defName="VCHE_ChemfuelTap" or defName="VCHE_ChemfuelDrain" or defName="VCHE_DeepchemPipe" or defName="VCHE_UndergroundDeepchemPipe" or defName="VCHE_DeepchemValve" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]/building</xpath>
                     <match Class="PatchOperationConditional">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator"]/building/relatedBuildCommands</xpath>
+                        <xpath>Defs/ThingDef[defName="VCHE_ChemfuelPipe" or defName="VCHE_UndergroundChemfuelPipe" or defName="VCHE_ChemfuelValve" or defName="VCHE_ChemfuelTap" or defName="VCHE_ChemfuelDrain" or defName="VCHE_DeepchemPipe" or defName="VCHE_UndergroundDeepchemPipe" or defName="VCHE_DeepchemValve" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]/building/relatedBuildCommands</xpath>
                         <nomatch Class="PatchOperationAdd">
                             <success>Always</success>
-                            <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator"]/building</xpath>
-                        <value>
-                            <relatedBuildCommands>
+                            <xpath>Defs/ThingDef[defName="VCHE_ChemfuelPipe" or defName="VCHE_UndergroundChemfuelPipe" or defName="VCHE_ChemfuelValve" or defName="VCHE_ChemfuelTap" or defName="VCHE_ChemfuelDrain" or defName="VCHE_DeepchemPipe" or defName="VCHE_UndergroundDeepchemPipe" or defName="VCHE_DeepchemValve" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
 
-                            </relatedBuildCommands>
-                        </value>
+                                </relatedBuildCommands>
+                            </value>
                         </nomatch>
                     </match>
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator"]</xpath>
+                        <xpath>Defs/ThingDef[defName="VCHE_ChemfuelPipe" or defName="VCHE_UndergroundChemfuelPipe" or defName="VCHE_ChemfuelValve" or defName="VCHE_ChemfuelTap" or defName="VCHE_ChemfuelDrain" or defName="VCHE_DeepchemPipe" or defName="VCHE_UndergroundDeepchemPipe" or defName="VCHE_DeepchemValve" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -50,6 +55,132 @@
                             </building>
                         </value>
                     </nomatch>
+                </li>
+
+                <!-- PS_ChemfuelTank | PS_DeepchemTank | PS_DeepchemRefinery -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="PS_ChemfuelTank" or defName="PS_DeepchemTank" or defName="PS_DeepchemRefinery"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="PS_ChemfuelTank" or defName="PS_DeepchemTank" or defName="PS_DeepchemRefinery"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="PS_ChemfuelTank" or defName="PS_DeepchemTank" or defName="PS_DeepchemRefinery"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="PS_ChemfuelTank" or defName="PS_DeepchemTank" or defName="PS_DeepchemRefinery"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- VCHE_ChemfuelPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_ChemfuelPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_UndergroundChemfuelPipe</li>
+                        <li>VCHE_ChemfuelValve</li>
+                    </value>
+                </li>
+
+                <!-- VCHE_UndergroundChemfuelPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_UndergroundChemfuelPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_ChemfuelPipe</li>
+                        <li>VCHE_ChemfuelValve</li>
+                    </value>
+                </li>
+
+                <!-- VCHE_ChemfuelValve -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_ChemfuelValve"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_ChemfuelPipe</li>
+                        <li>VCHE_UndergroundChemfuelPipe</li>
+                    </value>
+                </li>
+
+                <!-- PS_ChemfuelTank | VCHE_ChemfuelTap | VCHE_ChemfuelDrain -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="PS_ChemfuelTank" or defName="VCHE_ChemfuelTap" or defName="VCHE_ChemfuelDrain"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_ChemfuelPipe</li>
+                        <li>VCHE_UndergroundChemfuelPipe</li>
+                        <li>VCHE_ChemfuelValve</li>
+                    </value>
+                </li>
+
+                <!-- VCHE_DeepchemPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_DeepchemPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_UndergroundDeepchemPipe</li>
+                        <li>VCHE_DeepchemValve</li>
+                    </value>
+                </li>
+
+                <!-- VCHE_UndergroundDeepchemPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_UndergroundDeepchemPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_DeepchemPipe</li>
+                        <li>VCHE_DeepchemValve</li>
+                    </value>
+                </li>
+
+                <!-- VCHE_DeepchemValve -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_DeepchemValve"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_DeepchemPipe</li>
+                        <li>VCHE_UndergroundDeepchemPipe</li>
+                    </value>
+                </li>
+
+                <!-- PS_DeepchemTank | PS_DeepchemRefinery | VCHE_DeepchemPumpjack | VCHE_DeepchemTap | VCHE_DeepchemDrain -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="PS_DeepchemTank" or defName="PS_DeepchemRefinery" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_DeepchemPipe</li>
+                        <li>VCHE_UndergroundDeepchemPipe</li>
+                        <li>VCHE_DeepchemValve</li>
+                    </value>
+                </li>
+
+                <!-- PS_DeepchemRefinery -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="PS_DeepchemRefinery"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VCHE_ChemfuelPipe</li>
+                        <li>VCHE_UndergroundChemfuelPipe</li>
+                        <li>VCHE_ChemfuelValve</li>
+                        <li>VCHE_DeepchemPipe</li>
+                        <li>VCHE_UndergroundDeepchemPipe</li>
+                        <li>VCHE_DeepchemValve</li>
+                    </value>
                 </li>
             </operations>
         </match>

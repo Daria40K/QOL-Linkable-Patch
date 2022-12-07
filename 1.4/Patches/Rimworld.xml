@@ -2,19 +2,17 @@
 <Patch>
     <!-- ========== RimWorld ==========
 
-        Bed
-        DoubleBed
-        RoyalBed
-        HospitalBed
+        BasicBedBase | #bed
+        HospitalBed | #medical
 
         == Generators
-		WoodFiredGenerator | #power
-        ChemfuelPoweredGenerator | #power
-        WindTurbine | #power
-        SolarGenerator | #power
-        GeothermalGenerator | #power
-        WatermillGenerator | #power
-        ToxifierGenerator
+		WoodFiredGenerator | #generator
+        ChemfuelPoweredGenerator | #generator #chemfuel
+        WindTurbine | #generator
+        SolarGenerator | #generator
+        GeothermalGenerator | #generator #geothermal
+        WatermillGenerator | #generator
+        ToxifierGenerator | #generator
 
         == Cables
         PowerConduit | #cable
@@ -28,16 +26,16 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!-- Bed | DoubleBed | RoyalBed | HospitalBed -->
+                <!-- BasicBedBase | HospitalBed -->
                 <li Class="PatchOperationConditional">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="Bed" or defName="DoubleBed" or defName="RoyalBed" or defName="HospitalBed"]/building</xpath>
+                    <xpath>Defs/ThingDef[@Name="BasicBedBase" or defName="HospitalBed"]/building</xpath>
                     <match Class="PatchOperationConditional">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="Bed" or defName="DoubleBed" or defName="RoyalBed" or defName="HospitalBed"]/building/relatedBuildCommands</xpath>
+                        <xpath>Defs/ThingDef[@Name="BasicBedBase" or defName="HospitalBed"]/building/relatedBuildCommands</xpath>
                         <nomatch Class="PatchOperationAdd">
                             <success>Always</success>
-                            <xpath>Defs/ThingDef[defName="Bed" or defName="DoubleBed" or defName="RoyalBed" or defName="HospitalBed"]/building</xpath>
+                            <xpath>Defs/ThingDef[@Name="BasicBedBase" or defName="HospitalBed"]/building</xpath>
                             <value>
                                 <relatedBuildCommands>
 
@@ -47,7 +45,7 @@
                     </match>
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="Bed" or defName="DoubleBed" or defName="RoyalBed" or defName="HospitalBed"]</xpath>
+                        <xpath>Defs/ThingDef[@Name="BasicBedBase" or defName="HospitalBed"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -159,6 +157,68 @@
                     </value>
                 </li>
 
+                <!-- ========== Advanced Power Plus ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Advanced Power Plus</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SteamGeyser -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SteamGeyser"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>sd_adv_powergen_adv_geothermal_generator</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>AKN_NeatCables</li>
+                                    <li>AKN_DecorativeCables</li>
+                                    <li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
                 <!-- ========== Cybernetic Storm ========== -->
                 <li Class="PatchOperationFindMod">
                     <mods>
@@ -212,21 +272,21 @@
                 </li>
 
                 <!-- ========== Glitter Tech ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Glitter Tech</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Glitter Tech</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
                             <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
                                 <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
                                 <value>
-									<li>HeavyPowerConduit</li>
-								</value>
-							</li>
+                                    <li>HeavyPowerConduit</li>
+                                </value>
+                            </li>
 
                             <!-- SteamGeyser -->
                             <li Class="PatchOperationAdd">
@@ -236,9 +296,59 @@
                                     <li>XenonIonTurbine</li>
                                 </value>
                             </li>
-						</operations>
-					</match>
-				</li>
+
+                            <!-- Wall -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="Wall"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BlastDoor</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== M-13's Safe Batteries and Conduits ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>M-13's Safe Batteries and Conduits</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== UN-Colony Vanilla (Continued) ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>UN-Colony Vanilla (Continued)</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>SadjuukPowerConduitA</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
 
                 <!-- ========== Backup Power ========== -->
                 <li Class="PatchOperationFindMod">
@@ -268,10 +378,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- Bed | DoubleBed | RoyalBed | HospitalBed -->
+                            <!-- BasicBedBase -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="Bed" or defName="DoubleBed" or defName="RoyalBed" or defName="HospitalBed"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[@Name="BasicBedBase"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>GNBasicBedIntegrator</li>
                                     <li>GNImprovedBedIntegrator</li>
@@ -287,6 +397,17 @@
                                     <li>GNBasicMedicalIntegrator</li>
                                     <li>GNImprovedMedicalIntegrator</li>
                                     <li>GNAdvancedMedicalIntegrator</li>
+                                </value>
+                            </li>
+
+                            <!-- SimpleResearchBench | HiTechResearchBench -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+                                <value>
+                                    <li>GNBasicResearchIntegrator</li>
+                                    <li>GNImprovedResearchIntegrator</li>
+                                    <li>GNAdvancedResearchIntegrator</li>
                                 </value>
                             </li>
 
@@ -351,26 +472,47 @@
                     </match>
                 </li>
 
+                <!-- ========== [WD] Reinforced Doors ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>[WD] Reinforced Doors</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- Wall -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="Wall"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>WDReinforcedDoor</li>
+                                    <li>WDReinforcedAutodoor</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
                 <!-- ========== Vanilla Chemfuel Expanded ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Vanilla Chemfuel Expanded</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-							<!-- ChemfuelPoweredGenerator -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="ChemfuelPoweredGenerator"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>VCHE_ChemfuelPipe</li>
-									<li>VCHE_UndergroundChemfuelPipe</li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Chemfuel Expanded</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- ChemfuelPoweredGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="ChemfuelPoweredGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>VCHE_ChemfuelPipe</li>
+                                    <li>VCHE_UndergroundChemfuelPipe</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
 
                 <!-- ========== Vanilla Furniture Expanded - Power ========== -->
                 <li Class="PatchOperationFindMod">
@@ -392,15 +534,24 @@
                     </match>
                 </li>
 
-                <!-- Wall -->
-                <li Class="PatchOperationAdd">
-                    <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="Wall"]/building/relatedBuildCommands</xpath>
-                    <value>
-                        <li MayRequire="xavior.glittertech">BlastDoor</li>
-                        <li MayRequire="wemd.reinforceddoors">WDReinforcedDoor</li>
-                        <li MayRequire="wemd.reinforceddoors">WDReinforcedAutodoor</li>
-                    </value>
+                <!-- ========== Standalone Hot Spring ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Standalone Hot Spring</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SteamGeyser -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SteamGeyser"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>StandaloneHotSpring</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

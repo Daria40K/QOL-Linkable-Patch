@@ -57,6 +57,48 @@
 					</value>
 				</li>
 
+				<!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SNS_Reactor_I | SNS_Reactor_I_Portable | SNS_Reactor_II | SNS_Reactor_II_Portable | SNS_Reactor_III -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="SNS_Reactor_I" or defName="SNS_Reactor_I_Portable" or defName="SNS_Reactor_II" or defName="SNS_Reactor_II_Portable" or defName="SNS_Reactor_III"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>AKN_NeatCables</li>
+									<li>AKN_DecorativeCables</li>
+									<li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+				<!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SNS_Reactor_I | SNS_Reactor_I_Portable | SNS_Reactor_II | SNS_Reactor_II_Portable | SNS_Reactor_III -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="SNS_Reactor_I" or defName="SNS_Reactor_I_Portable" or defName="SNS_Reactor_II" or defName="SNS_Reactor_II_Portable" or defName="SNS_Reactor_III"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
 				<!-- ========== Cybernetic Storm ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>
@@ -92,6 +134,47 @@
 								<xpath>Defs/ThingDef[defName="SNS_Reactor_I" or defName="SNS_Reactor_I_Portable" or defName="SNS_Reactor_II" or defName="SNS_Reactor_II_Portable" or defName="SNS_Reactor_III"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== M-13's Safe Batteries and Conduits ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>M-13's Safe Batteries and Conduits</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- SNS_Reactor_I | SNS_Reactor_I_Portable | SNS_Reactor_II | SNS_Reactor_II_Portable | SNS_Reactor_III -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="SNS_Reactor_I" or defName="SNS_Reactor_I_Portable" or defName="SNS_Reactor_II" or defName="SNS_Reactor_II_Portable" or defName="SNS_Reactor_III"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== UN-Colony Vanilla (Continued) ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>UN-Colony Vanilla (Continued)</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- SNS_Reactor_I | SNS_Reactor_I_Portable | SNS_Reactor_II | SNS_Reactor_II_Portable | SNS_Reactor_III -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="SNS_Reactor_I" or defName="SNS_Reactor_I_Portable" or defName="SNS_Reactor_II" or defName="SNS_Reactor_II_Portable" or defName="SNS_Reactor_III"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>SadjuukPowerConduitA</li>
 								</value>
 							</li>
 						</operations>
@@ -134,27 +217,6 @@
 									<li>GNBasicPowerIntegrator</li>
 									<li>GNImprovedPowerIntegrator</li>
 									<li>GNAdvancedPowerIntegrator</li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
-
-				<!-- ========== Vanilla Chemfuel Expanded ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Vanilla Chemfuel Expanded</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-							<!-- SNS_Reactor_I | SNS_Reactor_I_Portable | SNS_Reactor_II | SNS_Reactor_II_Portable | SNS_Reactor_III -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="SNS_Reactor_I" or defName="SNS_Reactor_I_Portable" or defName="SNS_Reactor_II" or defName="SNS_Reactor_II_Portable" or defName="SNS_Reactor_III"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>VCHE_ChemfuelPipe</li>
-									<li>VCHE_UndergroundChemfuelPipe</li>
 								</value>
 							</li>
 						</operations>

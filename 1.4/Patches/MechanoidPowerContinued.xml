@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<!-- ========== Glitter Tech ==========
+	<!-- ========== Mechanoid Power (Continued) ==========
 
-		XenonIonTurbine | #generator
-        PlasmaReactor | #generator
+		MPC_MechanoidPowerCell | #generator
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Glitter Tech</li>
+			<li>Mechanoid Power (Continued)</li>
 		</mods>
 
 		<match Class="PatchOperationSequence">
 			<success>Always</success>
 			<operations>
-				<!-- XenonIonTurbine |  PlasmaReactor -->
+				<!-- MPC_MechanoidPowerCell -->
 				<li Class="PatchOperationConditional">
 					<success>Always</success>
-					<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building</xpath>
+					<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building</xpath>
 					<match Class="PatchOperationConditional">
 						<success>Always</success>
-						<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+						<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 						<nomatch Class="PatchOperationAdd">
 							<success>Always</success>
-							<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building</xpath>
+							<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building</xpath>
 							<value>
 								<relatedBuildCommands>
 
@@ -32,7 +31,7 @@
 					</match>
 					<nomatch Class="PatchOperationAdd">
 						<success>Always</success>
-						<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]</xpath>
+						<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]</xpath>
 						<value>
 							<building>
 								<relatedBuildCommands>
@@ -44,10 +43,10 @@
 				</li>
 
 				<!-- ========== RimWorld ========== -->
-				<!-- XenonIonTurbine |  PlasmaReactor -->
+				<!-- MPC_MechanoidPowerCell -->
 				<li Class="PatchOperationAdd">
 					<success>Always</success>
-					<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+					<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 					<value>
 						<li>PowerConduit</li>
 						<li>WaterproofConduit</li>
@@ -62,10 +61,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- XenonIonTurbine |  PlasmaReactor -->
+                            <!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
                                     <li>AKN_NeatCables</li>
 									<li>AKN_DecorativeCables</li>
@@ -84,10 +83,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- XenonIonTurbine |  PlasmaReactor -->
+                            <!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
                                     <li>BD_ReinforcedPowerConduit</li>
                                 </value>
@@ -104,10 +103,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-							<!-- XenonIonTurbine |  PlasmaReactor -->
+							<!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>CS_PowerConduit</li>
 									<li>WaterproofUltrasteelConduit</li>
@@ -125,10 +124,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-							<!-- XenonIonTurbine |  PlasmaReactor -->
+							<!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>HeavyPowerConduit</li>
 								</value>
@@ -145,10 +144,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- XenonIonTurbine |  PlasmaReactor -->
+                            <!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>M13PowerConduit</li>
                                     <li>M13WaterproofConduit</li>
@@ -166,12 +165,32 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- XenonIonTurbine |  PlasmaReactor -->
+                            <!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>SadjuukPowerConduitA</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== Backup Power ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Backup Power</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<!-- MPC_MechanoidPowerCell -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>BackupPower_Attachment</li>
 								</value>
 							</li>
 						</operations>
@@ -186,10 +205,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-							<!-- XenonIonTurbine |  PlasmaReactor -->
+							<!-- MPC_MechanoidPowerCell -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="XenonIonTurbine" or defName="PlasmaReactor"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MPC_MechanoidPowerCell"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>GNBasicPowerIntegrator</li>
 									<li>GNImprovedPowerIntegrator</li>

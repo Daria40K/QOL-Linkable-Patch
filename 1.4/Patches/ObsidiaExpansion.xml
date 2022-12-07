@@ -5,6 +5,15 @@
 		OESyntheriusGeneratorBase | #generator
         OEQuantumGeneratorBase | #generator
         OE_GeothermalGenerator | #generator
+
+		MechaniteAssemblySW | #work
+        TableWeaverSW | #work
+
+		OE_Wall
+		OE_Embrasure
+		OE_Door
+		OE_Autodoor
+		OE_Petdoor
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
@@ -44,6 +53,47 @@
 					</nomatch>
 				</li>
 
+				<!-- MechaniteAssemblySW | TableWeaverSW -->
+				<li Class="PatchOperationConditional">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building</xpath>
+					<match Class="PatchOperationConditional">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building/relatedBuildCommands</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<success>Always</success>
+							<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building</xpath>
+							<value>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</value>
+						</nomatch>
+					</match>
+					<nomatch Class="PatchOperationAdd">
+						<success>Always</success>
+						<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]</xpath>
+						<value>
+							<building>
+								<relatedBuildCommands>
+
+								</relatedBuildCommands>
+							</building>
+						</value>
+					</nomatch>
+				</li>
+
+				<!-- OE_Wall | OE_Embrasure -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[@Name="OE_Wall" or @Name="OE_Embrasure"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>OE_Door</li>
+						<li>OE_Autodoor</li>
+						<li>OE_Petdoor</li>
+					</value>
+				</li>
+
 				<!-- ========== RimWorld ========== -->
 				<!-- OESyntheriusGeneratorBase | OEQuantumGeneratorBase | OE_GeothermalGenerator -->
 				<li Class="PatchOperationAdd">
@@ -54,6 +104,48 @@
 						<li>WaterproofConduit</li>
 					</value>
 				</li>
+
+				<!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- OESyntheriusGeneratorBase | OEQuantumGeneratorBase | OE_GeothermalGenerator -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[@Name="OESyntheriusGeneratorBase" or @Name="OEQuantumGeneratorBase" or defName="OE_GeothermalGenerator"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>AKN_NeatCables</li>
+									<li>AKN_DecorativeCables</li>
+									<li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+				<!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- OESyntheriusGeneratorBase | OEQuantumGeneratorBase | OE_GeothermalGenerator -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[@Name="OESyntheriusGeneratorBase" or @Name="OEQuantumGeneratorBase" or defName="OE_GeothermalGenerator"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
 
 				<!-- ========== Cybernetic Storm ========== -->
 				<li Class="PatchOperationFindMod">
@@ -90,6 +182,47 @@
 								<xpath>Defs/ThingDef[@Name="OESyntheriusGeneratorBase" or @Name="OEQuantumGeneratorBase" or defName="OE_GeothermalGenerator"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== M-13's Safe Batteries and Conduits ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>M-13's Safe Batteries and Conduits</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- OESyntheriusGeneratorBase | OEQuantumGeneratorBase | OE_GeothermalGenerator -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[@Name="OESyntheriusGeneratorBase" or @Name="OEQuantumGeneratorBase" or defName="OE_GeothermalGenerator"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== UN-Colony Vanilla (Continued) ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>UN-Colony Vanilla (Continued)</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- OESyntheriusGeneratorBase | OEQuantumGeneratorBase | OE_GeothermalGenerator -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[@Name="OESyntheriusGeneratorBase" or @Name="OEQuantumGeneratorBase" or defName="OE_GeothermalGenerator"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>SadjuukPowerConduitA</li>
 								</value>
 							</li>
 						</operations>
@@ -134,25 +267,15 @@
 									<li>GNAdvancedPowerIntegrator</li>
 								</value>
 							</li>
-						</operations>
-					</match>
-				</li>
 
-				<!-- ========== Vanilla Chemfuel Expanded ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>Vanilla Chemfuel Expanded</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-							<!-- OESyntheriusGeneratorBase | OEQuantumGeneratorBase | OE_GeothermalGenerator -->
+							<!-- MechaniteAssemblySW | TableWeaverSW -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[@Name="OESyntheriusGeneratorBase" or @Name="OEQuantumGeneratorBase" or defName="OE_GeothermalGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building/relatedBuildCommands</xpath>
 								<value>
-									<li>VCHE_ChemfuelPipe</li>
-									<li>VCHE_UndergroundChemfuelPipe</li>
+									<li>GNBasicWorkspeedIntegrator</li>
+									<li>GNImprovedWorkspeedIntegrator</li>
+									<li>GNAdvancedWorkspeedIntegrator</li>
 								</value>
 							</li>
 						</operations>

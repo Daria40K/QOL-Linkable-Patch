@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<!--
-		========== __TemplatePowerMod__ ==========
+		========== Backup Generators (Continued) ==========
 
-		Eccentric_FusionGenerator | #generator
+		BackupGeneratorWood | #generator
+        BackupGeneratorChemfuel | #generator
+        MobileGeneratorChemfuel | #generator
+        LargeBackupGeneratorUranium | #generator
+        MobileGeneratorUranium | #generator
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>__TemplatePowerMod__</li>
+			<li>Backup Generators (Continued)</li>
 		</mods>
 
 		<match Class="PatchOperationSequence">
 			<success>Always</success>
 			<operations>
-                <!-- Eccentric_FusionGenerator -->
-				<li Class="PatchOperationConditional">
+                <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
+                <li Class="PatchOperationConditional">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building</xpath>
+                    <xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building</xpath>
                     <match Class="PatchOperationConditional">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+                        <xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
                         <nomatch Class="PatchOperationAdd">
                             <success>Always</success>
-                            <xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building</xpath>
+                            <xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building</xpath>
                         <value>
                             <relatedBuildCommands>
 
@@ -32,7 +36,7 @@
                     </match>
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator"]</xpath>
+                        <xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -43,12 +47,10 @@
                     </nomatch>
                 </li>
 
-
-                <!-- ========== RimWorld ========== -->
-                <!-- Eccentric_FusionGenerator -->
+                <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 				<li Class="PatchOperationAdd">
 					<success>Always</success>
-					<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+					<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 					<value>
 						<li>PowerConduit</li>
                         <li>WaterproofConduit</li>
@@ -63,10 +65,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- Eccentric_FusionGenerator -->
+                            <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 								<value>
                                     <li>AKN_NeatCables</li>
 									<li>AKN_DecorativeCables</li>
@@ -85,10 +87,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- Eccentric_FusionGenerator -->
+                            <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 								<value>
                                     <li>BD_ReinforcedPowerConduit</li>
                                 </value>
@@ -105,10 +107,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-							<!-- Eccentric_FusionGenerator -->
+							<!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>CS_PowerConduit</li>
 									<li>WaterproofUltrasteelConduit</li>
@@ -126,10 +128,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- Eccentric_FusionGenerator -->
+                            <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>HeavyPowerConduit</li>
 								</value>
@@ -138,7 +140,7 @@
 					</match>
 				</li>
 
-				<!-- ========== M-13's Safe Batteries and Conduits ========== -->
+                <!-- ========== M-13's Safe Batteries and Conduits ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>
 						<li>M-13's Safe Batteries and Conduits</li>
@@ -146,10 +148,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- Eccentric_FusionGenerator -->
+                            <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>M13PowerConduit</li>
                                     <li>M13WaterproofConduit</li>
@@ -167,10 +169,10 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- Eccentric_FusionGenerator -->
+                            <!-- BackupGeneratorWood | BackupGeneratorChemfuel | MobileGeneratorChemfuel | LargeBackupGeneratorUranium | MobileGeneratorUranium -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorWood" or defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel" or defName="LargeBackupGeneratorUranium" or defName="MobileGeneratorUranium"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>SadjuukPowerConduitA</li>
 								</value>
@@ -179,42 +181,21 @@
 					</match>
 				</li>
 
-				<!-- ========== Backup Power ========== -->
+                <!-- ========== Vanilla Chemfuel Expanded ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>
-						<li>Backup Power</li>
+						<li>Vanilla Chemfuel Expanded</li>
 					</mods>
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- Eccentric_FusionGenerator -->
+							<!-- BackupGeneratorChemfuel | MobileGeneratorChemfuel -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="BackupGeneratorChemfuel" or defName="MobileGeneratorChemfuel"]/building/relatedBuildCommands</xpath>
 								<value>
-									<li>BackupPower_Attachment</li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
-
-				<!-- ========== GlitterNet ========== -->
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>GlitterNet</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<success>Always</success>
-						<operations>
-                            <!-- Eccentric_FusionGenerator -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="Eccentric_FusionGenerator"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>GNBasicPowerIntegrator</li>
-                                    <li>GNImprovedPowerIntegrator</li>
-                                    <li>GNAdvancedPowerIntegrator</li>
+									<li>VCHE_ChemfuelPipe</li>
+									<li>VCHE_UndergroundChemfuelPipe</li>
 								</value>
 							</li>
 						</operations>

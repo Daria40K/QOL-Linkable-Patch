@@ -2,20 +2,22 @@
 <Patch>
     <!-- ========== Vanilla Furniture Expanded - Power ==========
 
-        - VPE_NuclearGenerator
-        x VFE_PortableWoodFiredGenerator
-        x VFE_PortableChemfuelPoweredGenerator
-        x VFE_IndustrialWoodFiredGenerator
-        x VFE_IndustrialChemfuelPoweredGenerator
-        - VFE_TidalGenerator
-        - VFE_AdvancedWindTurbine
-        x VFE_AdvancedSolarGenerator
-        - VFE_AdvancedWatermillGenerator
-        - VPE_AdvancedGeothermalGenerator
+        - VPE_NuclearGenerator | #generator
+        x VFE_PortableWoodFiredGenerator | #generator
+        x VFE_PortableChemfuelPoweredGenerator | #generator #chemfuel
+        x VFE_IndustrialWoodFiredGenerator | #generator
+        x VFE_IndustrialChemfuelPoweredGenerator | #generator #chemfuel
+        - VFE_TidalGenerator | #generator
+        - VFE_AdvancedWindTurbine | #generator
+        x VFE_AdvancedSolarGenerator | #generator
+        - VFE_AdvancedWatermillGenerator | #generator
+        - VPE_AdvancedGeothermalGenerator | #generator #geothermal
 
-        x VFE_SmallVanometricPowerCell
-        x VFE_LargeVanometricPowerCell
-        - VPE_ArchotechViolenceGenerator
+        CE_InfiniteChemfuelPump
+
+        x VFE_SmallVanometricPowerCell | #generator
+        x VFE_LargeVanometricPowerCell | #generator
+        - VPE_ArchotechViolenceGenerator | #generator
 
         x VFE_LargeBattery
         x VFE_SmallBattery
@@ -146,6 +148,48 @@
                     </value>
                 </li>
 
+                <!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VPE_NuclearGenerator | VFE_PortableWoodFiredGenerator | VFE_PortableChemfuelPoweredGenerator | VFE_IndustrialWoodFiredGenerator | VFE_IndustrialChemfuelPoweredGenerator | VFE_TidalGenerator | VFE_AdvancedWindTurbine | VFE_AdvancedSolarGenerator | VFE_AdvancedWatermillGenerator | VPE_AdvancedGeothermalGenerator | VPE_ArchotechViolenceGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VPE_NuclearGenerator" or defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator" or defName="VFE_TidalGenerator" or defName="VFE_AdvancedWindTurbine" or defName="VFE_AdvancedSolarGenerator" or defName="VFE_AdvancedWatermillGenerator" or defName="VPE_AdvancedGeothermalGenerator" or defName="VPE_ArchotechViolenceGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>AKN_NeatCables</li>
+									<li>AKN_DecorativeCables</li>
+									<li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VPE_NuclearGenerator | VFE_PortableWoodFiredGenerator | VFE_PortableChemfuelPoweredGenerator | VFE_IndustrialWoodFiredGenerator | VFE_IndustrialChemfuelPoweredGenerator | VFE_TidalGenerator | VFE_AdvancedWindTurbine | VFE_AdvancedSolarGenerator | VFE_AdvancedWatermillGenerator | VPE_AdvancedGeothermalGenerator | VPE_ArchotechViolenceGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VPE_NuclearGenerator" or defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator" or defName="VFE_TidalGenerator" or defName="VFE_AdvancedWindTurbine" or defName="VFE_AdvancedSolarGenerator" or defName="VFE_AdvancedWatermillGenerator" or defName="VPE_AdvancedGeothermalGenerator" or defName="VPE_ArchotechViolenceGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
                 <!-- ========== Cybernetic Storm ========== -->
                 <li Class="PatchOperationFindMod">
                     <mods>
@@ -206,6 +250,47 @@
                     </match>
                 </li>
 
+                <!-- ========== M-13's Safe Batteries and Conduits ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>M-13's Safe Batteries and Conduits</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- VPE_NuclearGenerator | VFE_PortableWoodFiredGenerator | VFE_PortableChemfuelPoweredGenerator | VFE_IndustrialWoodFiredGenerator | VFE_IndustrialChemfuelPoweredGenerator | VFE_TidalGenerator | VFE_AdvancedWindTurbine | VFE_AdvancedSolarGenerator | VFE_AdvancedWatermillGenerator | VPE_AdvancedGeothermalGenerator | VPE_ArchotechViolenceGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VPE_NuclearGenerator" or defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator" or defName="VFE_TidalGenerator" or defName="VFE_AdvancedWindTurbine" or defName="VFE_AdvancedSolarGenerator" or defName="VFE_AdvancedWatermillGenerator" or defName="VPE_AdvancedGeothermalGenerator" or defName="VPE_ArchotechViolenceGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+									<li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+                <!-- ========== UN-Colony Vanilla (Continued) ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>UN-Colony Vanilla (Continued)</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- VPE_NuclearGenerator | VFE_PortableWoodFiredGenerator | VFE_PortableChemfuelPoweredGenerator | VFE_IndustrialWoodFiredGenerator | VFE_IndustrialChemfuelPoweredGenerator | VFE_TidalGenerator | VFE_AdvancedWindTurbine | VFE_AdvancedSolarGenerator | VFE_AdvancedWatermillGenerator | VPE_AdvancedGeothermalGenerator | VPE_ArchotechViolenceGenerator -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VPE_NuclearGenerator" or defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator" or defName="VFE_TidalGenerator" or defName="VFE_AdvancedWindTurbine" or defName="VFE_AdvancedSolarGenerator" or defName="VFE_AdvancedWatermillGenerator" or defName="VPE_AdvancedGeothermalGenerator" or defName="VPE_ArchotechViolenceGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+									<li>SadjuukPowerConduitA</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
                 <!-- ========== Backup Power ========== -->
                 <li Class="PatchOperationFindMod">
                     <mods>
@@ -214,10 +299,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- VPE_NuclearGenerator | VFE_PortableWoodFiredGenerator | VFE_PortableChemfuelPoweredGenerator | VFE_IndustrialWoodFiredGenerator | VFE_IndustrialChemfuelPoweredGenerator | VFE_TidalGenerator | VFE_AdvancedWindTurbine | VFE_AdvancedSolarGenerator | VFE_AdvancedWatermillGenerator | VPE_AdvancedGeothermalGenerator | VPE_ArchotechViolenceGenerator -->
+                            <!-- VFE_PortableWoodFiredGenerator | VFE_PortableChemfuelPoweredGenerator | VFE_IndustrialWoodFiredGenerator | VFE_IndustrialChemfuelPoweredGenerator -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="VPE_NuclearGenerator" or defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator" or defName="VFE_TidalGenerator" or defName="VFE_AdvancedWindTurbine" or defName="VFE_AdvancedSolarGenerator" or defName="VFE_AdvancedWatermillGenerator" or defName="VPE_AdvancedGeothermalGenerator" or defName="VPE_ArchotechViolenceGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>BackupPower_Attachment</li>
                                 </value>
@@ -263,6 +348,7 @@
                                 <value>
                                     <li>VCHE_ChemfuelPipe</li>
                                     <li>VCHE_UndergroundChemfuelPipe</li>
+                                    <li>VCHE_ChemfuelValve</li>
                                 </value>
                             </li>
                         </operations>
@@ -277,6 +363,8 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
+
+
                             <!-- VPE_HelixienGenerator |  VPE_IndustrialHelixienGenerator -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>

@@ -2,12 +2,12 @@
 <!--
     ========== Apini Playable Race, Continued! ==========
 
-    ApiniHoneycombBed_S
-    ApiniHoneycombBed_L
-    ApiniNectarStill
-    ApiniProstheticsTable
-    ApitechTable
-    ApitechSynthesizer
+    ApiniHoneycombBed_S | #bed
+    ApiniHoneycombBed_L | #bed
+    ApiniNectarStill | #work
+    ApiniProstheticsTable | #work
+    ApitechTable | #work
+    ApitechSynthesizer | #work
 -->
 <Patch>
 	<Operation Class="PatchOperationFindMod">

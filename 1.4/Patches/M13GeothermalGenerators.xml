@@ -3,14 +3,14 @@
 	<!--
 		========== M-13's Geothermal Generators ==========
 
-		Tweaked_Geothermal | #power
-        Tweaked_Geothermal_NG
-        Upgraded_Geothermal
-        Upgraded_Geothermal_NG
-        Advanced_Geothermal
-        Advanced_Geothermal_NG
-        Ultimate_Geothermal
-        Ultimate_Geothermal_NG
+		Tweaked_Geothermal | #generator
+        Tweaked_Geothermal_NG | #generator
+        Upgraded_Geothermal | #generator
+        Upgraded_Geothermal_NG | #generator
+        Advanced_Geothermal | #generator
+        Advanced_Geothermal_NG | #generator
+        Ultimate_Geothermal | #generator
+        Ultimate_Geothermal_NG | #generator
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
@@ -60,6 +60,48 @@
 					</value>
 				</li>
 
+				<!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- Tweaked_Geothermal | Tweaked_Geothermal_NG | Upgraded_Geothermal | Upgraded_Geothermal_NG | Advanced_Geothermal | Advanced_Geothermal_NG | Ultimate_Geothermal | Ultimate_Geothermal_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Geothermal" or defName="Tweaked_Geothermal_NG" or defName="Upgraded_Geothermal" or defName="Upgraded_Geothermal_NG" or defName="Advanced_Geothermal" or defName="Advanced_Geothermal_NG" or defName="Ultimate_Geothermal" or defName="Ultimate_Geothermal_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>AKN_NeatCables</li>
+									<li>AKN_DecorativeCables</li>
+									<li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+				<!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- Tweaked_Geothermal | Tweaked_Geothermal_NG | Upgraded_Geothermal | Upgraded_Geothermal_NG | Advanced_Geothermal | Advanced_Geothermal_NG | Ultimate_Geothermal | Ultimate_Geothermal_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Geothermal" or defName="Tweaked_Geothermal_NG" or defName="Upgraded_Geothermal" or defName="Upgraded_Geothermal_NG" or defName="Advanced_Geothermal" or defName="Advanced_Geothermal_NG" or defName="Ultimate_Geothermal" or defName="Ultimate_Geothermal_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
 				<!-- ========== Cybernetic Storm ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>
@@ -95,6 +137,47 @@
 								<xpath>Defs/ThingDef[defName="Tweaked_Geothermal" or defName="Tweaked_Geothermal_NG" or defName="Upgraded_Geothermal" or defName="Upgraded_Geothermal_NG" or defName="Advanced_Geothermal" or defName="Advanced_Geothermal_NG" or defName="Ultimate_Geothermal" or defName="Ultimate_Geothermal_NG"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== M-13's Safe Batteries and Conduits ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>M-13's Safe Batteries and Conduits</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Geothermal | Tweaked_Geothermal_NG | Upgraded_Geothermal | Upgraded_Geothermal_NG | Advanced_Geothermal | Advanced_Geothermal_NG | Ultimate_Geothermal | Ultimate_Geothermal_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Geothermal" or defName="Tweaked_Geothermal_NG" or defName="Upgraded_Geothermal" or defName="Upgraded_Geothermal_NG" or defName="Advanced_Geothermal" or defName="Advanced_Geothermal_NG" or defName="Ultimate_Geothermal" or defName="Ultimate_Geothermal_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== UN-Colony Vanilla (Continued) ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>UN-Colony Vanilla (Continued)</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Geothermal | Tweaked_Geothermal_NG | Upgraded_Geothermal | Upgraded_Geothermal_NG | Advanced_Geothermal | Advanced_Geothermal_NG | Ultimate_Geothermal | Ultimate_Geothermal_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Geothermal" or defName="Tweaked_Geothermal_NG" or defName="Upgraded_Geothermal" or defName="Upgraded_Geothermal_NG" or defName="Advanced_Geothermal" or defName="Advanced_Geothermal_NG" or defName="Ultimate_Geothermal" or defName="Ultimate_Geothermal_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>SadjuukPowerConduitA</li>
 								</value>
 							</li>
 						</operations>

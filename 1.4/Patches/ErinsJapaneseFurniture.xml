@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<!--
-		========== Fast regen 1.4 ==========
+		========== Erin's Japanese Furniture ==========
 
-		HerbBede | #medical
-        MedBed | #medical
-        IIMed | #medical
+		Erin_FutonA | #bed
+        Erin_FutonB | #bed
+        Erin_DoubleFutonA | #bed
+        Erin_DoubleFutonB | #bed
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Fast regen 1.4</li>
+			<li>Erin's Japanese Furniture</li>
 		</mods>
 
 		<match Class="PatchOperationSequence">
 			<success>Always</success>
 			<operations>
-                <!-- HerbBede | MedBed | IIMed -->
+                <!-- Erin_FutonA | Erin_FutonB | Erin_DoubleFutonA | Erin_DoubleFutonB -->
                 <li Class="PatchOperationConditional">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building</xpath>
+                    <xpath>Defs/ThingDef[defName="Erin_FutonA" or defName="Erin_FutonB" or defName="Erin_DoubleFutonA" or defName="Erin_DoubleFutonB"]/building</xpath>
                     <match Class="PatchOperationConditional">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building/relatedBuildCommands</xpath>
+                        <xpath>Defs/ThingDef[defName="Erin_FutonA" or defName="Erin_FutonB" or defName="Erin_DoubleFutonA" or defName="Erin_DoubleFutonB"]/building/relatedBuildCommands</xpath>
                         <nomatch Class="PatchOperationAdd">
                             <success>Always</success>
-                            <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building</xpath>
+                            <xpath>Defs/ThingDef[defName="Erin_FutonA" or defName="Erin_FutonB" or defName="Erin_DoubleFutonA" or defName="Erin_DoubleFutonB"]/building</xpath>
                             <value>
                                 <relatedBuildCommands>
 
@@ -34,7 +35,7 @@
                     </match>
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]</xpath>
+                        <xpath>Defs/ThingDef[defName="Erin_FutonA" or defName="Erin_FutonB" or defName="Erin_DoubleFutonA" or defName="Erin_DoubleFutonB"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -53,14 +54,14 @@
 					<match Class="PatchOperationSequence">
 						<success>Always</success>
 						<operations>
-                            <!-- HerbBede | MedBed | IIMed -->
+                            <!-- Erin_FutonA | Erin_FutonB | Erin_DoubleFutonA | Erin_DoubleFutonB -->
 							<li Class="PatchOperationAdd">
 								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="HerbBede" or defName="MedBed" or defName="IIMed"]/building/relatedBuildCommands</xpath>
+								<xpath>Defs/ThingDef[defName="Erin_FutonA" or defName="Erin_FutonB" or defName="Erin_DoubleFutonA" or defName="Erin_DoubleFutonB"]/building/relatedBuildCommands</xpath>
 								<value>
-									<li>GNBasicMedicalIntegrator</li>
-                                    <li>GNImprovedMedicalIntegrator</li>
-                                    <li>GNAdvancedMedicalIntegrator</li>
+									<li>GNBasicBedIntegrator</li>
+                                    <li>GNImprovedBedIntegrator</li>
+                                    <li>GNAdvancedBedIntegrator</li>
 								</value>
 							</li>
 						</operations>

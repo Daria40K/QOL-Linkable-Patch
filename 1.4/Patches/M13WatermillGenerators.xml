@@ -3,14 +3,14 @@
 	<!--
 		========== M-13's Watermill Generators ==========
 
-		Tweaked_Watermill | #power
-        Tweaked_Watermill_NG
-        Upgraded_Watermill
-        Upgraded_Watermill_NG
-        Advanced_Watermill
-        Advanced_Watermill_NG
-        Ultimate_Watermill
-        Ultimate_Watermill_NG
+		Tweaked_Watermill | #generator
+        Tweaked_Watermill_NG | #generator
+        Upgraded_Watermill | #generator
+        Upgraded_Watermill_NG | #generator
+        Advanced_Watermill | #generator
+        Advanced_Watermill_NG | #generator
+        Ultimate_Watermill | #generator
+        Ultimate_Watermill_NG | #generator
 	-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
@@ -61,6 +61,48 @@
 					</value>
 				</li>
 
+				<!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- Tweaked_Watermill | Tweaked_Watermill_NG | Upgraded_Watermill | Upgraded_Watermill_NG | Advanced_Watermill | Advanced_Watermill_NG | Ultimate_Watermill | Ultimate_Watermill_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Watermill" or defName="Tweaked_Watermill_NG" or defName="Upgraded_Watermill" or defName="Upgraded_Watermill_NG" or defName="Advanced_Watermill" or defName="Advanced_Watermill_NG" or defName="Ultimate_Watermill" or defName="Ultimate_Watermill_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>AKN_NeatCables</li>
+									<li>AKN_DecorativeCables</li>
+									<li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+				<!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- Tweaked_Watermill | Tweaked_Watermill_NG | Upgraded_Watermill | Upgraded_Watermill_NG | Advanced_Watermill | Advanced_Watermill_NG | Ultimate_Watermill | Ultimate_Watermill_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Watermill" or defName="Tweaked_Watermill_NG" or defName="Upgraded_Watermill" or defName="Upgraded_Watermill_NG" or defName="Advanced_Watermill" or defName="Advanced_Watermill_NG" or defName="Ultimate_Watermill" or defName="Ultimate_Watermill_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
 				<!-- ========== Cybernetic Storm ========== -->
 				<li Class="PatchOperationFindMod">
 					<mods>
@@ -96,6 +138,47 @@
 								<xpath>Defs/ThingDef[defName="Tweaked_Watermill" or defName="Tweaked_Watermill_NG" or defName="Upgraded_Watermill" or defName="Upgraded_Watermill_NG" or defName="Advanced_Watermill" or defName="Advanced_Watermill_NG" or defName="Ultimate_Watermill" or defName="Ultimate_Watermill_NG"]/building/relatedBuildCommands</xpath>
 								<value>
 									<li>HeavyPowerConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== M-13's Safe Batteries and Conduits ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>M-13's Safe Batteries and Conduits</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Watermill | Tweaked_Watermill_NG | Upgraded_Watermill | Upgraded_Watermill_NG | Advanced_Watermill | Advanced_Watermill_NG | Ultimate_Watermill | Ultimate_Watermill_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Watermill" or defName="Tweaked_Watermill_NG" or defName="Upgraded_Watermill" or defName="Upgraded_Watermill_NG" or defName="Advanced_Watermill" or defName="Advanced_Watermill_NG" or defName="Ultimate_Watermill" or defName="Ultimate_Watermill_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+
+				<!-- ========== UN-Colony Vanilla (Continued) ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>UN-Colony Vanilla (Continued)</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+                            <!-- Tweaked_Watermill | Tweaked_Watermill_NG | Upgraded_Watermill | Upgraded_Watermill_NG | Advanced_Watermill | Advanced_Watermill_NG | Ultimate_Watermill | Ultimate_Watermill_NG -->
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>Defs/ThingDef[defName="Tweaked_Watermill" or defName="Tweaked_Watermill_NG" or defName="Upgraded_Watermill" or defName="Upgraded_Watermill_NG" or defName="Advanced_Watermill" or defName="Advanced_Watermill_NG" or defName="Ultimate_Watermill" or defName="Ultimate_Watermill_NG"]/building/relatedBuildCommands</xpath>
+								<value>
+									<li>SadjuukPowerConduitA</li>
 								</value>
 							</li>
 						</operations>

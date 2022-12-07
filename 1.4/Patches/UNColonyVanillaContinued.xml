@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== UN-Colony Vanilla (Continued) ==========
+
+        SadjuukBedroomBase | #bed
+        SadjuukHospitalBase | #medical
+        SadjuukResearchAA | #research
+        SadjuukResearchBA | #research
+        SadjuukResearchCA | #researchadv
+
+        SadjuukGeneratorAA | #generator
+        SadjuukGeneratorPA | #generator #chemfuel
+        SadjuukGeneratorBA | #generator #chemfuel
+        SadjuukGeneratorBB | #generator #chemfuel
+        SadjuukGeneratorBC | #generator #chemfuel
+        SadjuukGeneratorCA | #generator #chemfuel
+        SadjuukGeneratorCB | #generator #chemfuel
+        SadjuukGeneratorPB | #generator #chemfuel
+        SadjuukGeneratorMA | #generator #chemfuel
+        SadjuukGeneratorMB | #generator #chemfuel
+        SadjuukGeneratorMB | #generator
+        SadjuukGeneratorYA | #generator
+
+        SadjuukWallAA
+        SadjuukEmbrasureAA
+        SadjuukDoorAH
+        SadjuukDoorAV
+
+        SadjuukWallAB
+        SadjuukEmbrasureAB
+        SadjuukDoorBH
+        SadjuukDoorBV
+
+        SadjuukWallBA
+        SadjuukEmbrasureBA
+        SadjuukDoorCH
+        SadjuukDoorCV
+
+        SadjuukWallBB
+        SadjuukEmbrasureBB
+        SadjuukWallBaseC
+        SadjuukEmbrasureBaseC
+        SadjuukDoorDH
+        SadjuukDoorDV
+        SadjuukDoorGH
+        SadjuukDoorGV
+
+        SadjuukWallBaseD
+        SadjuukEmbrasureBaseD
+        SadjuukDoorFH
+        SadjuukDoorFV
+        SadjuukDoorEH
+        SadjuukDoorEV
+
+        SadjuukWallBaseE
+        SadjuukEmbrasureBaseE
+        SadjuukDoorJH
+        SadjuukDoorJV
+        SadjuukDoorKH
+        SadjuukDoorKV
+
+        SadjuukFenceA
+        SadjuukGateGH
+        SadjuukGateGV
+
+        SadjuukFenceB
+        SadjuukGateHH
+        SadjuukGateHV
+
+        SadjuukFenceC
+        SadjuukGateIH
+        SadjuukGateIV
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>UN-Colony Vanilla (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- SadjuukResearchAA | SadjuukResearchBA | SadjuukResearchCA -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukResearchAA" or defName="SadjuukResearchBA" or defName="SadjuukResearchCA"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukResearchAA" or defName="SadjuukResearchBA" or defName="SadjuukResearchCA"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="SadjuukResearchAA" or defName="SadjuukResearchBA" or defName="SadjuukResearchCA"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukResearchAA" or defName="SadjuukResearchBA" or defName="SadjuukResearchCA"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- SadjuukBedroomBase | SadjuukHospitalBase -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukBedroomBase" or @Name="SadjuukHospitalBase"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[@Name="SadjuukBedroomBase" or @Name="SadjuukHospitalBase"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[@Name="SadjuukBedroomBase" or @Name="SadjuukHospitalBase"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[@Name="SadjuukBedroomBase" or @Name="SadjuukHospitalBase"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- SadjuukWallAA | SadjuukEmbrasureAA | SadjuukWallAB | SadjuukEmbrasureAB | SadjuukWallBA | SadjuukEmbrasureBA | SadjuukWallBB | SadjuukEmbrasureBB | SadjuukWallBaseC | SadjuukEmbrasureBaseC | SadjuukWallBaseD | SadjuukEmbrasureBaseD | SadjuukWallBaseE | SadjuukEmbrasureBaseE -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukWallAA" or defName="SadjuukEmbrasureAA" or defName="SadjuukWallAB" or defName="SadjuukEmbrasureAB" or defName="SadjuukWallBA" or defName="SadjuukEmbrasureBA" or defName="SadjuukWallBB" or defName="SadjuukEmbrasureBB" or @Name="SadjuukWallBaseC" or @Name="SadjuukEmbrasureBaseC" or @Name="SadjuukWallBaseD" or @Name="SadjuukEmbrasureBaseD" or @Name="SadjuukWallBaseE" or @Name="SadjuukEmbrasureBaseE"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukWallAA" or defName="SadjuukEmbrasureAA" or defName="SadjuukWallAB" or defName="SadjuukEmbrasureAB" or defName="SadjuukWallBA" or defName="SadjuukEmbrasureBA" or defName="SadjuukWallBB" or defName="SadjuukEmbrasureBB" or @Name="SadjuukWallBaseC" or @Name="SadjuukEmbrasureBaseC" or @Name="SadjuukWallBaseD" or @Name="SadjuukEmbrasureBaseD" or @Name="SadjuukWallBaseE" or @Name="SadjuukEmbrasureBaseE"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="SadjuukWallAA" or defName="SadjuukEmbrasureAA" or defName="SadjuukWallAB" or defName="SadjuukEmbrasureAB" or defName="SadjuukWallBA" or defName="SadjuukEmbrasureBA" or defName="SadjuukWallBB" or defName="SadjuukEmbrasureBB" or @Name="SadjuukWallBaseC" or @Name="SadjuukEmbrasureBaseC" or @Name="SadjuukWallBaseD" or @Name="SadjuukEmbrasureBaseD" or @Name="SadjuukWallBaseE" or @Name="SadjuukEmbrasureBaseE"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukWallAA" or defName="SadjuukEmbrasureAA" or defName="SadjuukWallAB" or defName="SadjuukEmbrasureAB" or defName="SadjuukWallBA" or defName="SadjuukEmbrasureBA" or defName="SadjuukWallBB" or defName="SadjuukEmbrasureBB" or @Name="SadjuukWallBaseC" or @Name="SadjuukEmbrasureBaseC" or @Name="SadjuukWallBaseD" or @Name="SadjuukEmbrasureBaseD" or @Name="SadjuukWallBaseE" or @Name="SadjuukEmbrasureBaseE"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- SadjuukFenceA | SadjuukFenceB | SadjuukFenceC -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukFenceA" or defName="SadjuukFenceB" or defName="SadjuukFenceC"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukFenceA" or defName="SadjuukFenceB" or defName="SadjuukFenceC"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="SadjuukFenceA" or defName="SadjuukFenceB" or defName="SadjuukFenceC"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SadjuukFenceA" or defName="SadjuukFenceB" or defName="SadjuukFenceC"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- SadjuukWallAA | SadjuukEmbrasureAA -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukWallAA" or defName="SadjuukEmbrasureAA"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukDoorAH</li>
+                        <li>SadjuukDoorAV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukWallAB | SadjuukEmbrasureAB -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukWallAB" or defName="SadjuukEmbrasureAB"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukDoorBH</li>
+                        <li>SadjuukDoorBV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukWallBA | SadjuukEmbrasureBA -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukWallBA" or defName="SadjuukEmbrasureBA"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukDoorCH</li>
+                        <li>SadjuukDoorCV</li>
+                    </value>
+                </li>
+
+
+                <!-- SadjuukWallBB | SadjuukEmbrasureBB | SadjuukWallBaseC | SadjuukEmbrasureBaseC -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukWallBB" or defName="SadjuukEmbrasureBB" or @Name="SadjuukWallBaseC" or @Name="SadjuukEmbrasureBaseC"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukDoorDH</li>
+                        <li>SadjuukDoorDV</li>
+                        <li>SadjuukDoorGH</li>
+                        <li>SadjuukDoorGV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukWallBaseD | SadjuukEmbrasureBaseD -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukWallBaseD" or @Name="SadjuukEmbrasureBaseD"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukDoorFH</li>
+                        <li>SadjuukDoorFV</li>
+                        <li>SadjuukDoorEH</li>
+                        <li>SadjuukDoorEV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukWallBaseE | SadjuukEmbrasureBaseE -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukWallBaseE" or @Name="SadjuukEmbrasureBaseE"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukDoorJH</li>
+                        <li>SadjuukDoorJV</li>
+                        <li>SadjuukDoorKH</li>
+                        <li>SadjuukDoorKV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukFenceA -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukFenceA"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukGateGH</li>
+                        <li>SadjuukGateGV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukGateGH | SadjuukGateGV -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukGateGH" or defName="SadjuukGateGV"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukFenceA</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukFenceB -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukFenceB"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukGateHH</li>
+                        <li>SadjuukGateHV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukGateHH | SadjuukGateHV -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukGateHH" or defName="SadjuukGateHV"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukFenceB</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukFenceC -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukFenceC"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukGateIH</li>
+                        <li>SadjuukGateIV</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukGateIH | SadjuukGateIV -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukGateIH" or defName="SadjuukGateIV"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukFenceC</li>
+                    </value>
+                </li>
+
+                <!-- ========== RimWorld ========== -->
+                <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>PowerConduit</li>
+                        <li>WaterproofConduit</li>
+                    </value>
+                </li>
+
+                <!-- ========== Akeron - Decorations ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Akeron - Decorations</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>AKN_NeatCables</li>
+                                    <li>AKN_DecorativeCables</li>
+                                    <li>AKN_OverheadCables</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Bill Doors' reinforced wires ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Bill Doors' reinforced wires</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BD_ReinforcedPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Cybernetic Storm ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Cybernetic Storm</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>CS_PowerConduit</li>
+                                    <li>WaterproofUltrasteelConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Glitter Tech ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Glitter Tech</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>HeavyPowerConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+
+
+                <!-- ========== M-13's Safe Batteries and Conduits ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>M-13's Safe Batteries and Conduits</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukPowerConduitA</li>
+                    </value>
+                </li>
+
+                <!-- ========== Backup Power ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Backup Power</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BackupPower_Attachment</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== GlitterNet ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>GlitterNet</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukBedroomBase -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[@Name="SadjuukBedroomBase"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>GNBasicBedIntegrator</li>
+                                    <li>GNImprovedBedIntegrator</li>
+                                    <li>GNAdvancedBedIntegrator</li>
+                                </value>
+                            </li>
+
+                            <!-- SadjuukHospitalBase -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[@Name="SadjuukHospitalBase"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>GNBasicMedicalIntegrator</li>
+                                    <li>GNImprovedMedicalIntegrator</li>
+                                    <li>GNAdvancedMedicalIntegrator</li>
+                                </value>
+                            </li>
+
+                            <!-- SadjuukResearchAA | SadjuukResearchBA | SadjuukResearchCA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukResearchAA" or defName="SadjuukResearchBA" or defName="SadjuukResearchCA"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+                                <value>
+                                    <li>GNBasicResearchIntegrator</li>
+                                    <li>GNImprovedResearchIntegrator</li>
+                                    <li>GNAdvancedResearchIntegrator</li>
+                                </value>
+                            </li>
+
+                            <!-- SadjuukGeneratorAA | SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB | SadjuukGeneratorMB | SadjuukGeneratorYA -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorAA" or defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorMB" or defName="SadjuukGeneratorYA"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>GNBasicPowerIntegrator</li>
+                                    <li>GNImprovedPowerIntegrator</li>
+                                    <li>GNAdvancedPowerIntegrator</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Vanilla Chemfuel Expanded ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Chemfuel Expanded</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SadjuukGeneratorPA | SadjuukGeneratorBA | SadjuukGeneratorBB | SadjuukGeneratorBC | SadjuukGeneratorCA | SadjuukGeneratorCB | SadjuukGeneratorPB | SadjuukGeneratorMA | SadjuukGeneratorMB -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SadjuukGeneratorPA" or defName="SadjuukGeneratorBA" or defName="SadjuukGeneratorBB" or defName="SadjuukGeneratorBC" or defName="SadjuukGeneratorCA" or defName="SadjuukGeneratorCB" or defName="SadjuukGeneratorPB" or defName="SadjuukGeneratorMA" or defName="SadjuukGeneratorMB"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>VCHE_ChemfuelPipe</li>
+                                    <li>VCHE_UndergroundChemfuelPipe</li>
+                                    <li>VCHE_ChemfuelValve</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
