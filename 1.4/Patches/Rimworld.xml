@@ -553,6 +553,26 @@
                         </operations>
                     </match>
                 </li>
+
+                <!-- ========== Wall Light ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Wall Light</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- Wall -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="Wall"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>Lighting_MURWallLight</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
             </operations>
         </match>
     </Operation>

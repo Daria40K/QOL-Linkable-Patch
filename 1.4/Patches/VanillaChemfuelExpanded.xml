@@ -158,10 +158,10 @@
                     </value>
                 </li>
 
-                <!-- PS_DeepchemTank | PS_DeepchemRefinery | VCHE_DeepchemPumpjack | VCHE_DeepchemTap | VCHE_DeepchemDrain -->
+                <!-- PS_DeepchemTank | VCHE_DeepchemPumpjack | VCHE_DeepchemTap | VCHE_DeepchemDrain -->
                 <li Class="PatchOperationAdd">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="PS_DeepchemTank" or defName="PS_DeepchemRefinery" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]/building/relatedBuildCommands</xpath>
+                    <xpath>Defs/ThingDef[defName="PS_DeepchemTank" or defName="VCHE_DeepchemPumpjack" or defName="VCHE_DeepchemTap" or defName="VCHE_DeepchemDrain"]/building/relatedBuildCommands</xpath>
                     <value>
                         <li>VCHE_DeepchemPipe</li>
                         <li>VCHE_UndergroundDeepchemPipe</li>

@@ -348,7 +348,6 @@
                                 <value>
                                     <li>VCHE_ChemfuelPipe</li>
                                     <li>VCHE_UndergroundChemfuelPipe</li>
-                                    <li>VCHE_ChemfuelValve</li>
                                 </value>
                             </li>
                         </operations>

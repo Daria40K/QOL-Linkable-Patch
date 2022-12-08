@@ -53,16 +53,16 @@
 					</nomatch>
 				</li>
 
-				<!-- MechaniteAssemblySW | TableWeaverSW -->
+				<!-- OE_Wall | OE_Embrasure -->
 				<li Class="PatchOperationConditional">
 					<success>Always</success>
-					<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building</xpath>
+					<xpath>Defs/ThingDef[defName="OE_Wall" or defName="OE_Embrasure"]/building</xpath>
 					<match Class="PatchOperationConditional">
 						<success>Always</success>
-						<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building/relatedBuildCommands</xpath>
+						<xpath>Defs/ThingDef[defName="OE_Wall" or defName="OE_Embrasure"]/building/relatedBuildCommands</xpath>
 						<nomatch Class="PatchOperationAdd">
 							<success>Always</success>
-							<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building</xpath>
+							<xpath>Defs/ThingDef[defName="OE_Wall" or defName="OE_Embrasure"]/building</xpath>
 							<value>
 								<relatedBuildCommands>
 
@@ -72,7 +72,7 @@
 					</match>
 					<nomatch Class="PatchOperationAdd">
 						<success>Always</success>
-						<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]</xpath>
+						<xpath>Defs/ThingDef[defName="OE_Wall" or defName="OE_Embrasure"]</xpath>
 						<value>
 							<building>
 								<relatedBuildCommands>
@@ -86,7 +86,7 @@
 				<!-- OE_Wall | OE_Embrasure -->
 				<li Class="PatchOperationAdd">
 					<success>Always</success>
-					<xpath>Defs/ThingDef[@Name="OE_Wall" or @Name="OE_Embrasure"]/building/relatedBuildCommands</xpath>
+					<xpath>Defs/ThingDef[defName="OE_Wall" or defName="OE_Embrasure"]/building/relatedBuildCommands</xpath>
 					<value>
 						<li>OE_Door</li>
 						<li>OE_Autodoor</li>
@@ -267,20 +267,29 @@
 									<li>GNAdvancedPowerIntegrator</li>
 								</value>
 							</li>
-
-							<!-- MechaniteAssemblySW | TableWeaverSW -->
-							<li Class="PatchOperationAdd">
-								<success>Always</success>
-								<xpath>Defs/ThingDef[defName="MechaniteAssemblySW" or defName="TableWeaverSW"]/building/relatedBuildCommands</xpath>
-								<value>
-									<li>GNBasicWorkspeedIntegrator</li>
-									<li>GNImprovedWorkspeedIntegrator</li>
-									<li>GNAdvancedWorkspeedIntegrator</li>
-								</value>
-							</li>
 						</operations>
 					</match>
 				</li>
+
+				<!-- ========== Wall Light ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Wall Light</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- OE_Wall | OE_Embrasure -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="OE_Wall" or defName="OE_Embrasure"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>Lighting_MURWallLight</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
 			</operations>
 		</match>
 	</Operation>
