@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== Centralized Climate Control (Continued) ==========
+
+        redAirPipe
+        redAirPipeHidden
+        blueAirPipe
+        blueAirPipeHidden
+        cyanAirPipe
+        cyanAirPipeHidden
+
+        +IntakeFan
+        +AirThermal
+        +LargeIntakeFan
+        +LargeAirThermal
+
+        WallAirVentSmall
+        WallAirVent
+        SurroundAirVent
+        SurroundAirVentWide
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Centralized Climate Control (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- IntakeFan | AirThermal | LargeIntakeFan | LargeAirThermal -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="IntakeFan" or defName="AirThermal" or defName="LargeIntakeFan" or defName="LargeAirThermal"]/building/relatedBuildCommands</xpath>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="IntakeFan" or defName="AirThermal" or defName="LargeIntakeFan" or defName="LargeAirThermal"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- SurroundAirVent | SurroundAirVentWide -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SurroundAirVent" or defName="SurroundAirVentWide"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SurroundAirVent" or defName="SurroundAirVentWide"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="SurroundAirVent" or defName="SurroundAirVentWide"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SurroundAirVent" or defName="SurroundAirVentWide"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- IntakeFan | AirThermal | LargeIntakeFan | LargeAirThermal | SurroundAirVent | SurroundAirVentWide -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="IntakeFan" or defName="AirThermal" or defName="LargeIntakeFan" or defName="LargeAirThermal" or defName="SurroundAirVent" or defName="SurroundAirVentWide"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>redAirPipe</li>
+                        <li>redAirPipeHidden</li>
+                        <li>blueAirPipe</li>
+                        <li>blueAirPipeHidden</li>
+                        <li>cyanAirPipe</li>
+                        <li>cyanAirPipeHidden</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

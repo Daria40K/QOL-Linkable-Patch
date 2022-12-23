@@ -5,6 +5,28 @@
         BasicBedBase | #bed
         HospitalBed | #medical
 
+        BenchBase
+            +TableSculpting
+            +TableButcher
+            +HandTailoringBench
+            +ElectricTailoringBench
+            +FueledSmithy
+            +ElectricSmithy
+            +TableMachining
+            +ElectricStove
+            +FueledStove
+            +TableStonecutter
+            +Brewery
+            +DrugLab
+            +ElectricSmelter
+            +BiofuelRefinery
+            +FabricationBench
+            +ElectricCrematorium
+            +DeepDrill
+
+            SimpleResearchBench
+            HiTechResearchBench
+
         == Generators
 		WoodFiredGenerator | #generator
         ChemfuelPoweredGenerator | #generator #chemfuel
@@ -14,9 +36,17 @@
         WatermillGenerator | #generator
         ToxifierGenerator | #generator
 
+        Battery  | #battery
+
         == Cables
         PowerConduit | #cable
         WaterproofConduit | #cable
+
+        SmoothedSandstone
+        SmoothedGranite
+        SmoothedLimestone
+        SmoothedSlate
+        SmoothedMarble
 	-->
     <Operation Class="PatchOperationFindMod">
         <mods>
@@ -46,6 +76,36 @@
                     <nomatch Class="PatchOperationAdd">
                         <success>Always</success>
                         <xpath>Defs/ThingDef[@Name="BasicBedBase" or defName="HospitalBed"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- TableSculpting | TableButcher | HandTailoringBench | ElectricTailoringBench | FueledSmithy | ElectricSmithy | TableMachining | ElectricStove | FueledStove | TableStonecutter | Brewery | DrugLab | ElectricSmelter | BiofuelRefinery | FabricationBench | ElectricCrematorium -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="TableSculpting" or defName="TableButcher" or defName="HandTailoringBench" or defName="ElectricTailoringBench" or defName="FueledSmithy" or defName="ElectricSmithy" or defName="TableMachining" or defName="ElectricStove" or defName="FueledStove" or defName="TableStonecutter" or defName="Brewery" or defName="DrugLab" or defName="ElectricSmelter" or defName="BiofuelRefinery" or defName="FabricationBench" or defName="ElectricCrematorium"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="TableSculpting" or defName="TableButcher" or defName="HandTailoringBench" or defName="ElectricTailoringBench" or defName="FueledSmithy" or defName="ElectricSmithy" or defName="TableMachining" or defName="ElectricStove" or defName="FueledStove" or defName="TableStonecutter" or defName="Brewery" or defName="DrugLab" or defName="ElectricSmelter" or defName="BiofuelRefinery" or defName="FabricationBench" or defName="ElectricCrematorium"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="TableSculpting" or defName="TableButcher" or defName="HandTailoringBench" or defName="ElectricTailoringBench" or defName="FueledSmithy" or defName="ElectricSmithy" or defName="TableMachining" or defName="ElectricStove" or defName="FueledStove" or defName="TableStonecutter" or defName="Brewery" or defName="DrugLab" or defName="ElectricSmelter" or defName="BiofuelRefinery" or defName="FabricationBench" or defName="ElectricCrematorium"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="TableSculpting" or defName="TableButcher" or defName="HandTailoringBench" or defName="ElectricTailoringBench" or defName="FueledSmithy" or defName="ElectricSmithy" or defName="TableMachining" or defName="ElectricStove" or defName="FueledStove" or defName="TableStonecutter" or defName="Brewery" or defName="DrugLab" or defName="ElectricSmelter" or defName="BiofuelRefinery" or defName="FabricationBench" or defName="ElectricCrematorium"]</xpath>
                         <value>
                             <building>
                                 <relatedBuildCommands>
@@ -116,6 +176,36 @@
                     </nomatch>
                 </li>
 
+                <!-- Battery -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="Battery"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="Battery"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="Battery"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="Battery"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
                 <!-- Door | Autodoor -->
                 <li Class="PatchOperationConditional">
                     <success>Always</success>
@@ -146,11 +236,41 @@
                     </nomatch>
                 </li>
 
+                <!-- SmoothedSandstone | SmoothedGranite | SmoothedLimestone | SmoothedSlate | SmoothedMarble -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="SmoothedSandstone" or defName="SmoothedGranite" or defName="SmoothedLimestone" or defName="SmoothedSlate" or defName="SmoothedMarble"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SmoothedSandstone" or defName="SmoothedGranite" or defName="SmoothedLimestone" or defName="SmoothedSlate" or defName="SmoothedMarble"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="SmoothedSandstone" or defName="SmoothedGranite" or defName="SmoothedLimestone" or defName="SmoothedSlate" or defName="SmoothedMarble"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="SmoothedSandstone" or defName="SmoothedGranite" or defName="SmoothedLimestone" or defName="SmoothedSlate" or defName="SmoothedMarble"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
                 <!-- ========== RimWorld ========== -->
-                <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                 <li Class="PatchOperationAdd">
                     <success>Always</success>
-                    <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                    <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                     <value>
                         <li>PowerConduit</li>
                         <li>WaterproofConduit</li>
@@ -185,10 +305,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>AKN_NeatCables</li>
                                     <li>AKN_DecorativeCables</li>
@@ -207,10 +327,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>BD_ReinforcedPowerConduit</li>
                                 </value>
@@ -227,10 +347,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>CS_PowerConduit</li>
                                     <li>WaterproofUltrasteelConduit</li>
@@ -279,10 +399,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>HeavyPowerConduit</li>
                                 </value>
@@ -317,10 +437,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>M13PowerConduit</li>
                                     <li>M13WaterproofConduit</li>
@@ -338,10 +458,10 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator -->
+                            <!-- WoodFiredGenerator | ChemfuelPoweredGenerator | WindTurbine | SolarGenerator | GeothermalGenerator | WatermillGenerator | ToxifierGenerator | Battery -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
-                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator"]/building/relatedBuildCommands</xpath>
+                                <xpath>Defs/ThingDef[defName="WoodFiredGenerator" or defName="ChemfuelPoweredGenerator" or defName="WindTurbine" or defName="SolarGenerator" or defName="GeothermalGenerator" or defName="WatermillGenerator" or defName="ToxifierGenerator" or defName="Battery"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>SadjuukPowerConduitA</li>
                                 </value>
@@ -397,6 +517,17 @@
                                     <li>GNBasicMedicalIntegrator</li>
                                     <li>GNImprovedMedicalIntegrator</li>
                                     <li>GNAdvancedMedicalIntegrator</li>
+                                </value>
+                            </li>
+
+                            <!-- TableSculpting | TableButcher | HandTailoringBench | ElectricTailoringBench | FueledSmithy | ElectricSmithy | TableMachining | ElectricStove | FueledStove | TableStonecutter | Brewery | DrugLab | ElectricSmelter | BiofuelRefinery | FabricationBench | ElectricCrematorium -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="TableSculpting" or defName="TableButcher" or defName="HandTailoringBench" or defName="ElectricTailoringBench" or defName="FueledSmithy" or defName="ElectricSmithy" or defName="TableMachining" or defName="ElectricStove" or defName="FueledStove" or defName="TableStonecutter" or defName="Brewery" or defName="DrugLab" or defName="ElectricSmelter" or defName="BiofuelRefinery" or defName="FabricationBench" or defName="ElectricCrematorium"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>GNBasicWorkspeedIntegrator</li>
+                                    <li>GNImprovedWorkspeedIntegrator</li>
+                                    <li>GNAdvancedWorkspeedIntegrator</li>
                                 </value>
                             </li>
 
@@ -548,6 +679,26 @@
                                 <xpath>Defs/ThingDef[defName="SteamGeyser"]/building/relatedBuildCommands</xpath>
                                 <value>
                                     <li>StandaloneHotSpring</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Vanilla Factions Expanded - Classical ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Factions Expanded - Classical</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- SteamGeyser -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="SteamGeyser"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>VFEC_Thermaebath</li>
                                 </value>
                             </li>
                         </operations>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== CyberNet ==========
+
+        CNCyberNetBasicAccessPoint
+        CNCyberNetImprovedAccessPoint
+        CNCyberNetAdvancedAccessPoint
+
+        CNPacketRouter
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>CyberNet</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- CNCyberNetBasicAccessPoint | CNCyberNetImprovedAccessPoint | CNCyberNetAdvancedAccessPoint | CNPacketRouter -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="CNCyberNetBasicAccessPoint" or defName="CNCyberNetImprovedAccessPoint" or defName="CNCyberNetAdvancedAccessPoint" or defName="CNPacketRouter"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="CNCyberNetBasicAccessPoint" or defName="CNCyberNetImprovedAccessPoint" or defName="CNCyberNetAdvancedAccessPoint" or defName="CNPacketRouter"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="CNCyberNetBasicAccessPoint" or defName="CNCyberNetImprovedAccessPoint" or defName="CNCyberNetAdvancedAccessPoint" or defName="CNPacketRouter"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="CNCyberNetBasicAccessPoint" or defName="CNCyberNetImprovedAccessPoint" or defName="CNCyberNetAdvancedAccessPoint" or defName="CNPacketRouter"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- CNCyberNetBasicAccessPoint | CNCyberNetImprovedAccessPoint | CNCyberNetAdvancedAccessPoint | CNPacketRouter -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="CNCyberNetBasicAccessPoint" or defName="CNCyberNetImprovedAccessPoint" or defName="CNCyberNetAdvancedAccessPoint" or defName="CNPacketRouter"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>GNGlitterNetCable</li>
+                        <li>GNGlitterNetCableHidden</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== Vanilla Furniture Expanded - Medical Module ==========
+
+        VFEM_Wall_Sterile | #wall
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Furniture Expanded - Medical Module</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Royalty</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <!-- VFEM_Wall_Sterile -->
+                            <li Class="PatchOperationConditional">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building</xpath>
+                                <match Class="PatchOperationConditional">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building/relatedBuildCommands</xpath>
+                                    <nomatch Class="PatchOperationAdd">
+                                        <success>Always</success>
+                                        <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building</xpath>
+                                        <value>
+                                            <relatedBuildCommands>
+
+                                            </relatedBuildCommands>
+                                        </value>
+                                    </nomatch>
+                                </match>
+                                <nomatch Class="PatchOperationAdd">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]</xpath>
+                                    <value>
+                                        <building>
+                                            <relatedBuildCommands>
+
+                                            </relatedBuildCommands>
+                                        </building>
+                                    </value>
+                                </nomatch>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- VFEM_Wall_Sterile -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>Door</li>
+                        <li>Autodoor</li>
+                        <li>Blastdoor</li>
+                    </value>
+                </li>
+
+                <!-- ========== Glitter Tech ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Glitter Tech</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VFEM_Wall_Sterile -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>BlastDoor</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== [WD] Reinforced Doors ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>[WD] Reinforced Doors</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VFEM_Wall_Sterile -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>WDReinforcedDoor</li>
+                                    <li>WDReinforcedAutodoor</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Vanilla Furniture Expanded - Architect ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Furniture Expanded - Architect</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- ReinforcedWall | ReinforcedEmbrasure -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>VFEArch_ArmoredDoor</li>
+                                    <li>VFEArch_SingleDoor</li>
+                                    <li>VFEArch_SingleDoor_Flipped</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ========== Wall Light ========== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Wall Light</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- VFEM_Wall_Sterile -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFEM_Wall_Sterile"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>Lighting_MURWallLight</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

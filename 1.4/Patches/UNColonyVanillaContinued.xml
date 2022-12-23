@@ -70,6 +70,22 @@
         SadjuukFenceC
         SadjuukGateIH
         SadjuukGateIV
+
+        SadjuukChairBaseA
+        SadjuukTableBaseA
+
+        SadjuukChairBaseB
+        SadjuukTableBaseB
+
+        SadjuukChairBaseC
+        SadjuukTableBaseC
+
+        SadjuukChairEA
+        SadjuukTableBaseD
+        SadjuukTableBaseE
+
+        SadjuukChairEB
+        SadjuukTableBaseF
 	-->
     <Operation Class="PatchOperationFindMod">
         <mods>
@@ -229,6 +245,36 @@
                     </nomatch>
                 </li>
 
+                <!-- SadjuukTableBaseA | SadjuukTableBaseB | SadjuukTableBaseC | SadjuukTableBaseD | SadjuukTableBaseE | SadjuukTableBaseF -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukTableBaseA" or @Name="SadjuukTableBaseB" or @Name="SadjuukTableBaseC" or @Name="SadjuukTableBaseD" or @Name="SadjuukTableBaseE" or @Name="SadjuukTableBaseF"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[@Name="SadjuukTableBaseA" or @Name="SadjuukTableBaseB" or @Name="SadjuukTableBaseC" or @Name="SadjuukTableBaseD" or @Name="SadjuukTableBaseE" or @Name="SadjuukTableBaseF"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[@Name="SadjuukTableBaseA" or @Name="SadjuukTableBaseB" or @Name="SadjuukTableBaseC" or @Name="SadjuukTableBaseD" or @Name="SadjuukTableBaseE" or @Name="SadjuukTableBaseF"]/building</xpath>
+                            <value>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[@Name="SadjuukTableBaseA" or @Name="SadjuukTableBaseB" or @Name="SadjuukTableBaseC" or @Name="SadjuukTableBaseD" or @Name="SadjuukTableBaseE" or @Name="SadjuukTableBaseF"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
                 <!-- SadjuukWallAA | SadjuukEmbrasureAA -->
                 <li Class="PatchOperationAdd">
                     <success>Always</success>
@@ -350,6 +396,54 @@
                     <xpath>Defs/ThingDef[defName="SadjuukGateIH" or defName="SadjuukGateIV"]/building/relatedBuildCommands</xpath>
                     <value>
                         <li>SadjuukFenceC</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukTableBaseA -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukTableBaseA"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukChairAA</li>
+                        <li>SadjuukChairAB</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukTableBaseB -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukTableBaseB"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukChairBA</li>
+                        <li>SadjuukChairBB</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukTableBaseC -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukTableBaseC"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukChairCA</li>
+                        <li>SadjuukChairCB</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukTableBaseD | SadjuukTableBaseE -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukTableBaseD" or @Name="SadjuukTableBaseE"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukChairEA</li>
+                    </value>
+                </li>
+
+                <!-- SadjuukTableBaseF -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[@Name="SadjuukTableBaseF"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>SadjuukChairEB</li>
                     </value>
                 </li>
 

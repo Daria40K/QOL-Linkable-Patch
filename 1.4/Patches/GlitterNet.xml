@@ -17,6 +17,7 @@
         GNBasicMedicalIntegrator
         GNImprovedMedicalIntegrator
         GNAdvancedMedicalIntegrator
+
         GNGlitterNetHub
         GNBasicGlitterNetProcessor
         GNImprovedGlitterNetProcessor
@@ -77,6 +78,27 @@
                         <li>GNSpecializedConcurrencyProcessor</li>
                         <li>GNSpecializedOverheadProcessor</li>
                     </value>
+                </li>
+
+                <!-- CyberNet -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>CyberNet</li>
+                    </mods>
+
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <!-- GNGlitterNetHub -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="GNGlitterNetHub"]/building/relatedBuildCommands</xpath>
+                                <value>
+                                    <li>CNPacketRouter</li>
+                                </value>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
 
                 <!-- GNBasicWorkspeedIntegrator | GNImprovedWorkspeedIntegrator | GNAdvancedWorkspeedIntegrator | GNBasicResearchIntegrator | GNImprovedResearchIntegrator | GNAdvancedResearchIntegrator | GNBasicPowerIntegrator | GNImprovedPowerIntegrator | GNAdvancedPowerIntegrator | GNBasicBedIntegrator | GNImprovedBedIntegrator | GNAdvancedBedIntegrator | GNBasicMedicalIntegrator | GNImprovedMedicalIntegrator | GNAdvancedMedicalIntegrator | GNGlitterNetHub | GNBasicGlitterNetProcessor | GNImprovedGlitterNetProcessor | GNAdvancedGlitterNetProcessor | GNSpecializedEfficiencyProcessor | GNSpecializedOverdriveProcessor | GNSpecializedConcurrencyProcessor | GNSpecializedOverheadProcessor -->

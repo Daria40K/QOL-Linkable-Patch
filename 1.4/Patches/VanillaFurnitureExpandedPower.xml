@@ -19,10 +19,10 @@
         x VFE_LargeVanometricPowerCell | #generator
         - VPE_ArchotechViolenceGenerator | #generator
 
-        x VFE_LargeBattery
-        x VFE_SmallBattery
-        x VFE_AdvancedBattery
-        x VFE_LargeAdvancedBattery
+        x VFE_LargeBattery | #battery
+        x VFE_SmallBattery | #battery
+        x VFE_AdvancedBattery | #battery
+        x VFE_LargeAdvancedBattery | #battery
 
         VPE_GasPipe
         VPE_GasPipeSub
@@ -267,6 +267,16 @@
                                     <li>M13WaterproofConduit</li>
 								</value>
 							</li>
+
+                            <!-- VFE_LargeBattery | VFE_SmallBattery | VFE_AdvancedBattery | VFE_LargeAdvancedBattery -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFE_LargeBattery" or defName="VFE_SmallBattery" or defName="VFE_AdvancedBattery" or defName="VFE_LargeAdvancedBattery"]/building/relatedBuildCommands</xpath>
+                                <value>
+									<li>M13PowerConduit</li>
+                                    <li>M13WaterproofConduit</li>
+								</value>
+							</li>
 						</operations>
 					</match>
 				</li>
@@ -283,6 +293,15 @@
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>
                                 <xpath>Defs/ThingDef[defName="VPE_NuclearGenerator" or defName="VFE_PortableWoodFiredGenerator" or defName="VFE_PortableChemfuelPoweredGenerator" or defName="VFE_IndustrialWoodFiredGenerator" or defName="VFE_IndustrialChemfuelPoweredGenerator" or defName="VFE_TidalGenerator" or defName="VFE_AdvancedWindTurbine" or defName="VFE_AdvancedSolarGenerator" or defName="VFE_AdvancedWatermillGenerator" or defName="VPE_AdvancedGeothermalGenerator" or defName="VPE_ArchotechViolenceGenerator"]/building/relatedBuildCommands</xpath>
+                                <value>
+									<li>SadjuukPowerConduitA</li>
+								</value>
+							</li>
+
+                            <!-- VFE_LargeBattery | VFE_SmallBattery | VFE_AdvancedBattery | VFE_LargeAdvancedBattery -->
+                            <li Class="PatchOperationAdd">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="VFE_LargeBattery" or defName="VFE_SmallBattery" or defName="VFE_AdvancedBattery" or defName="VFE_LargeAdvancedBattery"]/building/relatedBuildCommands</xpath>
                                 <value>
 									<li>SadjuukPowerConduitA</li>
 								</value>
@@ -362,8 +381,6 @@
                     <match Class="PatchOperationSequence">
                         <success>Always</success>
                         <operations>
-
-
                             <!-- VPE_HelixienGenerator |  VPE_IndustrialHelixienGenerator -->
                             <li Class="PatchOperationAdd">
                                 <success>Always</success>

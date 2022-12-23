@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		========== M-13's Geothermal Generators ==========
+
+		+VCHE_CompressedScarletSludgePlatform
+        +USH_CompressedScarletSludgePipe
+
+        +VCHE_ScarletMechanitesPlatform
+        +USH_ScarletMechanitesPipe
+        USH_LuciferiumSynthesizer
+        +USH_LuciferiumPrecisionBooster
+
+        +USH_UndergroundScarletPipe
+        USH_ScarletTank
+        USH_HeavyScarletTank
+        ScarlettRefinery
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>M-13's Geothermal Generators</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+                <!-- VCHE_CompressedScarletSludgePlatform | VCHE_ScarletMechanitesPlatform | USH_LuciferiumPrecisionBooster -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VCHE_CompressedScarletSludgePlatform" or defName="VCHE_ScarletMechanitesPlatform" or defName="USH_LuciferiumPrecisionBooster"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="VCHE_CompressedScarletSludgePlatform" or defName="VCHE_ScarletMechanitesPlatform" or defName="USH_LuciferiumPrecisionBooster"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="VCHE_CompressedScarletSludgePlatform" or defName="VCHE_ScarletMechanitesPlatform" or defName="USH_LuciferiumPrecisionBooster"]/building</xpath>
+                        <value>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="VCHE_CompressedScarletSludgePlatform" or defName="VCHE_ScarletMechanitesPlatform" or defName="USH_LuciferiumPrecisionBooster"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- USH_LuciferiumSynthesizer | USH_ScarletTank | USH_HeavyScarletTank | ScarlettRefinery -->
+                <li Class="PatchOperationConditional">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="USH_LuciferiumSynthesizer" or defName="USH_ScarletTank" or defName="USH_HeavyScarletTank" or defName="ScarlettRefinery"]/building</xpath>
+                    <match Class="PatchOperationConditional">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="USH_LuciferiumSynthesizer" or defName="USH_ScarletTank" or defName="USH_HeavyScarletTank" or defName="ScarlettRefinery"]/building/relatedBuildCommands</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="USH_LuciferiumSynthesizer" or defName="USH_ScarletTank" or defName="USH_HeavyScarletTank" or defName="ScarlettRefinery"]/building</xpath>
+                        <value>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </value>
+                        </nomatch>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs/ThingDef[defName="USH_LuciferiumSynthesizer" or defName="USH_ScarletTank" or defName="USH_HeavyScarletTank" or defName="ScarlettRefinery"]</xpath>
+                        <value>
+                            <building>
+                                <relatedBuildCommands>
+
+                                </relatedBuildCommands>
+                            </building>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!-- VCHE_CompressedScarletSludgePlatform -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="VCHE_CompressedScarletSludgePlatform"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>USH_CompressedScarletSludgePipe</li>
+					</value>
+				</li>
+
+                <!-- VCHE_ScarletMechanitesPlatform | USH_LuciferiumSynthesizer | USH_LuciferiumPrecisionBooster -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="VCHE_ScarletMechanitesPlatform" or defName="USH_LuciferiumSynthesizer" or defName="USH_LuciferiumPrecisionBooster"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>USH_ScarletMechanitesPipe</li>
+					</value>
+				</li>
+
+                <!-- USH_ScarletTank | USH_HeavyScarletTank | ScarlettRefinery -->
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>Defs/ThingDef[defName="USH_ScarletTank" or defName="USH_HeavyScarletTank" or defName="ScarlettRefinery"]/building/relatedBuildCommands</xpath>
+					<value>
+						<li>USH_UndergroundScarletPipe</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
