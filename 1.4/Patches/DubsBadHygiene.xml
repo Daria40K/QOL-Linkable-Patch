@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== Vanilla Races Expanded - Sanguophage ==========
+
+        == Cables
+        -sewagePipeStuff | #cable
+        +plumbingValve
+
+        -PitLatrine
+        -BasinStuff
+        -Fountain
+        -KitchenSink
+        -ToiletStuff
+        -ToiletAdvStuff
+        -ShowerStuff
+        -ShowerSimple
+        -ShowerAdvStuff
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Races Expanded - Sanguophage</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- plumbingValve -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="plumbingValve"]/building</xpath>
+                    <value>
+                        <relatedBuildCommands>
+
+                        </relatedBuildCommands>
+                    </value>
+                </li>
+
+                <!-- PitLatrine | BasinStuff | Fountain | KitchenSink | ToiletStuff | ToiletAdvStuff | ShowerStuff | ShowerSimple | ShowerAdvStuff -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="PitLatrine" or defName="BasinStuff" or defName="Fountain" or defName="KitchenSink" or defName="ToiletStuff" or defName="ToiletAdvStuff" or defName="ShowerStuff" or defName="ShowerSimple" or defName="ShowerAdvStuff"]</xpath>
+                    <value>
+                        <building>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </building>
+                    </value>
+                </li>
+
+                <!-- sewagePipeStuff -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="sewagePipeStuff"]</xpath>
+                    <value>
+                        <building>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </building>
+                    </value>
+                </li>
+
+                <!-- sewagePipeStuff -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="sewagePipeStuff"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>plumbingValve</li>
+                    </value>
+                </li>
+
+                <!-- plumbingValve -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="plumbingValve"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>sewagePipeStuff</li>
+                    </value>
+                </li>
+
+                <!-- PitLatrine | BasinStuff | Fountain | KitchenSink | ToiletStuff | ToiletAdvStuff | ShowerStuff | ShowerSimple | ShowerAdvStuff -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="PitLatrine" or defName="BasinStuff" or defName="Fountain" or defName="KitchenSink" or defName="ToiletStuff" or defName="ToiletAdvStuff" or defName="ShowerStuff" or defName="ShowerSimple" or defName="ShowerAdvStuff"]</xpath>
+                    <value>
+                        <li>sewagePipeStuff</li>
+                        <li>plumbingValve</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

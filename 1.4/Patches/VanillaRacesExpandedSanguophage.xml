@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== Vanilla Races Expanded - Sanguophage ==========
+
+        == Cables
+        +VRE_HemogenPipe | #cable
+        +VRE_UndergroundHemogenPipe | #cable
+        +VRE_HemogenValve
+ 
+        -VRE_HemogenVat
+        +VRE_HemogenTap
+        +VRE_HemogenDrain
+        +VRE_Draincasket
+	-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Races Expanded - Sanguophage</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- VRE_HemogenPipe | VRE_UndergroundHemogenPipe | VRE_HemogenValve | VRE_HemogenTap | VRE_HemogenDrain | VRE_Draincasket -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VRE_HemogenPipe" or defName="VRE_UndergroundHemogenPipe" or defName="VRE_HemogenValve" or defName="VRE_HemogenVat" or defName="VRE_HemogenTap" or defName="VRE_HemogenDrain" or defName="VRE_Draincasket"]/building</xpath>
+                    <value>
+                        <relatedBuildCommands>
+
+                        </relatedBuildCommands>
+                    </value>
+                </li>
+
+                <!-- VRE_HemogenVat -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VRE_HemogenVat"]</xpath>
+                    <value>
+                        <building>
+                            <relatedBuildCommands>
+
+                            </relatedBuildCommands>
+                        </building>
+                    </value>
+                </li>
+
+                <!-- VRE_HemogenPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VRE_HemogenPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VRE_UndergroundHemogenPipe</li>
+                        <li>VRE_HemogenValve</li>
+                    </value>
+                </li>
+
+                <!-- VRE_UndergroundHemogenPipe -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VRE_UndergroundHemogenPipe"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VRE_HemogenPipe</li>
+                        <li>VRE_HemogenValve</li>
+                    </value>
+                </li>
+
+                <!-- VRE_HemogenValve -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VRE_HemogenValve"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VRE_HemogenPipe</li>
+                        <li>VRE_UndergroundHemogenPipe</li>
+                    </value>
+                </li>
+
+                <!-- VRE_HemogenVat | VRE_HemogenTap | VRE_HemogenDrain | VRE_Draincasket -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>Defs/ThingDef[defName="VRE_HemogenVat" or defName="VRE_HemogenTap" or defName="VRE_HemogenDrain" or defName="VRE_Draincasket"]/building/relatedBuildCommands</xpath>
+                    <value>
+                        <li>VRE_HemogenPipe</li>
+                        <li>VRE_UndergroundHemogenPipe</li>
+                        <li>VRE_HemogenValve</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
